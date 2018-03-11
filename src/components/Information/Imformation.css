@@ -1,0 +1,30 @@
+/* information CHILD*/
+
+.information-child {
+    display: grid;
+    grid-template-columns: 4% 92% 4%;
+}
+
+/* information WHITE CONTAINER */
+
+.information-white-container {
+    background: #fff;
+    height: 89vh;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+    overflow: scroll;
+    font-family: Alice;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 18px;
+    text-align: center;
+    color: #7D7D7D;
+    display: grid;
+    grid-template-rows: 4% 30%
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

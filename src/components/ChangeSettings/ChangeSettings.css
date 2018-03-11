@@ -1,0 +1,78 @@
+/* change-set CHILD*/
+
+.change-set-child {
+    display: grid;
+    grid-template-columns: 4% 92% 4%;
+}
+
+/* change-set WHITE CONTAINER */
+
+.change-set-white-container {
+    background: #fff;
+    height: 100%;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+    display: grid;
+    grid-template-rows: 16% 16% 16% 16% 36%
+}
+
+/* change-set GRAY CONTAINER */
+
+.change-set-gray-container {
+    margin: 5px;
+}
+
+/* change-set GRAY BOX */
+
+.change-set-gray-box {
+    height: 90%;
+    width: 90%;
+    margin: auto;
+    background: #E3E3E3;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    display: grid;
+}
+
+/* change-set TILE CONTAINER */
+
+.change-set-title-container {
+    font-family: Ovo;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 18px;
+    color: #FF5C00;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    padding: 10px;
+    text-align: left;
+}
+
+.change-set-toggle {
+    margin: auto
+}
+
+/* SLIDER CONTAINER */
+.change-set-distance-slider-container{
+    font-family: Alice;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    text-align: center;
+    color: #7D7D7D;
+}
+
+/* NOTIFICATIONS */
+.notifications{
+    font-family: Alice;
+    font-style: normal;
+    font-weight: normal;
+    line-height: normal;
+    font-size: 15px;
+    text-align: center;
+    color: #7D7D7D;
+    display: grid;
+    grid-template-columns: 50% 50%;
+}

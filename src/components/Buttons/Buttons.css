@@ -1,0 +1,19 @@
+/* BUTTONS CONTAINER */
+.buttons-container{
+    display:grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+/* BOTTOM BUTTONS */
+.bottom-btn{
+    margin:auto;
+}
+
+/* BOTTOM BUTTON IMAGES */
+.bottom-btn-img{
+    height:50px;
+    margin: auto;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}

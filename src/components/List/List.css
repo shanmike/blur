@@ -1,0 +1,13 @@
+/* LIST CONTAINER */
+.list-container{
+    display:grid;
+    grid-template-columns: 4% 92% 4%
+}
+/* LIST CHILD */
+.list-child{
+    background: #fff;
+    height:100%;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+}
