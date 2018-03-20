@@ -1,18 +1,16 @@
 -- ========= USERS TABLE ==============
 CREATE TABLE IF NOT EXISTS users(
       user_id SERIAL PRIMARY KEY
-    , picture VARCHAR(200)
-    , phone INT
-    , "name" VARCHAR(100)
-    , age INT
-    , birthday DATE
-    , email VARCHAR(50)
     , auth_id VARCHAR(180)
+    , picture VARCHAR(200)
+    , "name" VARCHAR(100)
+    , birthday DATE
+    , gender VARCHAR(10)
+    , email VARCHAR(50)
     , premium BOOLEAN
+    , visible BOOLEAN
     , latitude DOUBLE PRECISION
     , longitude DOUBLE PRECISION
-    , gender VARCHAR(10)
-    , visible BOOLEAN
     , distance_range INT
     , age_min INT
     , age_max INT
@@ -20,18 +18,16 @@ CREATE TABLE IF NOT EXISTS users(
 );
 -- ======== CREATE USER ===============
 INSERT INTO users (
-      picture
-    , phone
+      auth_id
+    , picture
     , "name"
-    , age
     , birthday
+    , gender
     , email
-    , auth_id
     , premium
+    , visible
     , latitude
     , longitude
-    , gender
-    , visible
     , distance_range
     , age_min
     , age_max
@@ -52,8 +48,6 @@ VALUES (
     , $12
     , $13
     , $14
-    , $15
-    , $16
 )
 RETURNING *;
 -- ======= FIND USER SESSION ==========

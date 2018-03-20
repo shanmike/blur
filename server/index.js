@@ -52,26 +52,25 @@ passport.use(new FacebookStrategy({
     clientID: APP_ID,
     clientSecret: APP_SECRET,
     callbackURL: "http://localhost:4567/fb/callback",
-    profileFields:['id','displayName','birthday','email','gender','picture.width(500).height(500)','age_range']
+    profileFields:['id','displayName','birthday','email','gender','picture.width(500).height(500)']
   },
   function(accessToken, refreshToken, profile, done) {
+    //   console.log(profile)
       const db = app.get('db')
     db.find_user([profile.id]).then(user=>{
         if(user[0]){
             done(null, user[0].user_id)
         }else{
             db.create_user([
-                profile.photos[0].value,
-                null,
-                profile.displayName,
-                profile.age_range,
-                profile._json.birthday,
-                profile.email,
                 profile.id,
-                null,
-                null,
-                null,
+                profile.photos[0].value,
+                profile.displayName,
+                profile._json.birthday,
                 profile.gender,
+                profile._json.email,
+                null,
+                null,
+                null,
                 null,
                 null,
                 null,
@@ -132,7 +131,7 @@ app.get('/auth/logout', ((req,res)=>{
 
 // ================ FACEBOOK PASSPORT ==============
 
-app.get('/fb',passport.authenticate('facebook',{scope:['public_profile','user_birthday']}));
+app.get('/fb',passport.authenticate('facebook',{scope:['public_profile','user_birthday','email']}));
 app.get('/fb/callback', passport.authenticate('facebook',{
       successRedirect: 'http://localhost:3000/#/home'
     , failureRedirect: 'http://localhost:3000'

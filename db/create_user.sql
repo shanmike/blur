@@ -1,16 +1,14 @@
 INSERT INTO users (
-      picture
-    , phone
+      auth_id
+    , picture
     , "name"
-    , age
     , birthday
+    , gender
     , email
-    , auth_id
     , premium
+    , visible
     , latitude
     , longitude
-    , gender
-    , visible
     , distance_range
     , age_min
     , age_max
@@ -31,7 +29,5 @@ VALUES (
     , $12
     , $13
     , $14
-    , $15
-    , $16
 )
 RETURNING *;

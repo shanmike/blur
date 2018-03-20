@@ -11,9 +11,11 @@ class ChangeSettings extends React.Component{
     constructor(){
         super()
         this.state={
-              visible:false
+              visible:false,
+              show_gender:''
         }
         this.toggleChange = this.toggleChange.bind(this)
+        this.handleGender = this.handleGender.bind(this)
     }
 
     toggleChange(){
@@ -28,6 +30,14 @@ class ChangeSettings extends React.Component{
     componentDidMount(){
         this.props.getUser();
     }
+
+    handleGender(value){
+        this.setState({
+            show_gender:value
+        },()=>{
+            axios.put('/updateUser',this.state)
+        })
+    }
     
     render(){
         console.log(this.state.visible)
@@ -41,8 +51,8 @@ class ChangeSettings extends React.Component{
                                 <div className="change-set-title-buttons">
                                     <div>Show Me</div>
                                     <div className="show-me-buttons">
-                                        <button className="show-me-buttons-both">Men</button>
-                                        <button className="show-me-buttons-both">Women</button>
+                                        <button onClick = {()=>this.handleGender('male')} className="show-me-buttons-both">Men</button>
+                                        <button onClick = {()=>this.handleGender('female')} className="show-me-buttons-both">Women</button>
                                     </div>
                                 </div>
                             </div>
