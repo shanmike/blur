@@ -1,18 +1,51 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {getUser} from '../../redux/User/user';
 import Toggle from '../Toggle/Toggle';
 import SliderOne from '../Sliders/SliderOne/SliderOne';
-import SliderTwo from '../Sliders/SliderTwo/SliderTwo'
+import SliderTwo from '../Sliders/SliderTwo/SliderTwo';
+import axios from 'axios'
 import './ChangeSettings.css';
 
-export default class ChangeSettings extends React.Component{
+class ChangeSettings extends React.Component{
+    constructor(){
+        super()
+        this.state={
+              visible:false
+        }
+        this.toggleChange = this.toggleChange.bind(this)
+    }
+
+    toggleChange(){
+        console.log('toggle')
+        this.setState({
+            visible:!this.state.visible
+        },()=>{
+            axios.put('/updateUser',this.state)
+        })
+    }
+
+    componentDidMount(){
+        this.props.getUser();
+    }
+    
     render(){
+        console.log(this.state.visible)
         return(
             <div className="change-set-child">
                 <div></div>
                 <div className="change-set-white-container">
                     <div className="change-set-gray-container">
                         <div className="change-set-gray-box">
-                            <div className="change-set-title-container">Show Me</div>
+                            <div className="change-set-title-container">
+                                <div className="change-set-title-buttons">
+                                    <div>Show Me</div>
+                                    <div className="show-me-buttons">
+                                        <button className="show-me-buttons-both">Men</button>
+                                        <button className="show-me-buttons-both">Women</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div className="change-set-gray-container">
@@ -41,7 +74,7 @@ export default class ChangeSettings extends React.Component{
                             </div>
                             <div className="notifications">
                                 <div>Use GPS</div>
-                                <Toggle/>
+                                <Toggle handleChange={this.toggleChange}/>
                             </div>
                         </div>
                     </div>
@@ -72,3 +105,10 @@ export default class ChangeSettings extends React.Component{
         )
     }
 }
+
+function mapStateToProps(state){
+    return{
+          user: state.user
+    }
+}
+export default connect(mapStateToProps, {getUser})(ChangeSettings);

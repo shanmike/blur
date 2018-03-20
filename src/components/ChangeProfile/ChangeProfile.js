@@ -19,7 +19,7 @@ class ChangeProfile extends React.Component{
                 <div className="change-profile-white-container">
                     <div></div>
                     <div className="change-profile-image-container">
-                        <img className="change-profile-image"src={user.picture} alt="" width="200px" height="120px"/>
+                        <img className="change-profile-image"src={user.picture} alt="" />
                     </div>
                     <div className="change-profile-name">{user.name}</div>
                     <div className="change-profile-buttons-container">
@@ -42,7 +42,12 @@ class ChangeProfile extends React.Component{
                         </div>
                     
                         <div className="change-profile-logout">
-                            <a href='http://localhost:4567/auth/logout'><button className="logout-button">Log out</button></a>
+                           <div className="change-profile-button">
+                                <a href='http://localhost:4567/auth/logout'><button className="logout-button">Log out</button></a>
+                           </div>
+                           <div className="change-profile-button">
+                                <button className="delete-account">Delete Account</button>
+                           </div>                            
                         </div>
                     </div>
                 </div>

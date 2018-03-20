@@ -26,7 +26,7 @@ const styles = {
     },
   };
   
-  const ToggleExampleSimple = () => (
+  const ToggleExampleSimple = (props) => (
     <div style={styles.block}>
       <Toggle
         thumbStyle={styles.thumbOff}
@@ -34,6 +34,7 @@ const styles = {
         thumbSwitchedStyle={styles.thumbSwitched}
         trackSwitchedStyle={styles.trackSwitched}
         labelStyle={styles.labelStyle}
+        onToggle = {props.handleChange}
       />
     </div>
   );

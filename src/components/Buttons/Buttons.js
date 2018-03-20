@@ -11,19 +11,29 @@ export default class Buttons extends Component {
     return (
       <div className="buttons-container">
         <div className="bottom-btn">
-            <img src={Arrow} alt="" className="bottom-btn-img"/>
+            <button className="bottom-buttons">
+                <img src={Arrow} alt="" className="bottom-btn-img"/>
+            </button>
         </div>
         <div className="bottom-btn">
-            <img src={Dislike} alt="" className="bottom-btn-img"/>
+            <button className="bottom-buttons">
+                <img src={Dislike} alt="" className="bottom-btn-img"/>
+            </button>
         </div>
         <div className="bottom-btn">
-            <img src={Heart} alt="" className="bottom-btn-img"/>
+            <button className="bottom-buttons">
+                <img src={Heart} alt="" className="bottom-btn-img"/>
+            </button>
         </div>
         <div className="bottom-btn">
-            <img src={Like} alt="" className="bottom-btn-img"/>
+            <button className="bottom-buttons">
+                <img src={Like} alt="" className="bottom-btn-img"/>
+            </button>
         </div>
         <div className="bottom-btn">
-            <img src={Premium} alt="" className="bottom-btn-img"/>
+            <button className="bottom-buttons">
+                <img src={Premium} alt="" className="bottom-btn-img"/>
+            </button>
         </div>
       </div>
     );

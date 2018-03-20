@@ -1,21 +1,10 @@
 import React from 'react';
-import {geolocated} from 'react-geolocated';
+import {geolocated, geoPropTypes} from 'react-geolocated';
 import axios from 'axios'
+import Progress from '../Progress/Progress'
 
 
 class Maps extends React.Component {
-  constructor() {
-    super()
-    this.state = {
-      latitude:0
-      , longitude:0
-    }
-  }
-
-  handleCoords = (value, prop)=>{
-    this.setState=({[prop]:value})
-  }
-
   render() {
     return !this.props.isGeolocationAvailable
       ? <div>Your browser does not support Geolocation</div>
@@ -24,19 +13,27 @@ class Maps extends React.Component {
         : this.props.coords
           ? <table>
               <tbody>
-                <tr><td>Latitude:</td><td>{e=>{this.props.coords.latitude}}</td></tr>
+                <tr><td>Latitude:</td><td>{this.props.coords.latitude}</td></tr>
                 <tr><td>Longitude:</td><td>{this.props.coords.longitude}</td></tr>
               </tbody>
             </table>
-          : <div>Getting the Location&hellip; </div>;
+          : <div className="getting-location">
+          <div>
+            Waiting to get the Location&hellip;
+          </div>
+            <Progress/>
+          </div>;
   
   }
 }
+Maps.propTypes = Object.assign({}, Maps.propTypes, geoPropTypes);
 
 export default geolocated({
   positionOptions: {
     enableHighAccuracy: true,
+    maximumAge: 0,
+    timeout: Infinity,
   },
-  userDecisionTimeout: 5000,
-  watchPosition: true
+  userDecisionTimeout: null,
+  suppressLocationOnMount: true
 })(Maps);

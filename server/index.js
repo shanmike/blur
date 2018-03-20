@@ -6,11 +6,11 @@ const express = require('express')
     , bodyParser = require('body-parser')
     , massive = require('massive')
     , FacebookStrategy = require('passport-facebook')
-    // , users_ctrl = require('./controllers/users_ctrl')
+    , users_ctrl = require('./controllers/users_ctrl')
     // , connections_ctrl = require('./controllers/connections_ctrl')
     // , matches_ctrl = require('./controllers/matches_ctrl')
     // , messages_ctrl = require('./controllers/messages_ctrl')
-    // , profile_ctrl = require('./controllers/profile_ctrl')
+    , profile_ctrl = require('./controllers/profile_ctrl')
 
 // ============ DOTENV =============================
 const {
@@ -51,51 +51,57 @@ app.use(passport.session());
 passport.use(new FacebookStrategy({
     clientID: APP_ID,
     clientSecret: APP_SECRET,
-    callbackURL: "http://localhost:4567/fb/callback"
+    callbackURL: "http://localhost:4567/fb/callback",
+    profileFields:['id','displayName','birthday','email','gender','picture.width(500).height(500)','age_range']
   },
-  function(accessToken, refreshToken, profile, cb) {
-      console.log(profile)
-    User.findOrCreate({ facebookId: profile.id }, function (err, user) {
-      return cb(err, user);
+  function(accessToken, refreshToken, profile, done) {
+      const db = app.get('db')
+    db.find_user([profile.id]).then(user=>{
+        if(user[0]){
+            done(null, user[0].user_id)
+        }else{
+            db.create_user([
+                profile.photos[0].value,
+                null,
+                profile.displayName,
+                profile.age_range,
+                profile._json.birthday,
+                profile.email,
+                profile.id,
+                null,
+                null,
+                null,
+                profile.gender,
+                null,
+                null,
+                null,
+                null,
+                null
+            ]).then(createdUser=>{
+                db.create_inital_profile([
+                    createdUser[0].user_id
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+                  , null
+              ]).then(()=>{
+                done(null, createdUser[0].user_id)
+              })   
+            })
+        }
     });
   }
 ));
 // ================================================
-
-// ============= AUTH0 STRATEGY ===================
-passport.use(new Auth0Strategy({
-      domain: DOMAIN
-    , clientID: CLIENT_ID
-    , clientSecret: CLIENT_SECRET
-    , callbackURL: CALLBACK_URL
-    , scope: "openid profile email"
-}   , function(accessToken, refreshToken, extraParams, profile, done){
-        const db = app.get('db')
-        db.find_user([profile.id]).then(users =>{
-            if(!users[0]){
-                db.create_user([
-                      profile.picture  
-                    , profile.phone
-                    , profile.displayName
-                    , profile.age
-                    , profile.birthday
-                    , profile._json.email
-                    , profile.id
-                    , profile.premium
-                    , profile.latitude
-                    , profile.longitude
-                    , profile._json.gender
-                ]).then(userCreated => {
-                    console.log(userCreated)
-                    return done(null, userCreated[0].user_id);
-                })
-            }else{
-                console.log(users[0])
-                return done(null, users[0].user_id);
-            }
-        }).catch(console.log)
-}));
-// =================================================
 
 // ============ SERIALIZE / DESERIALIZE ============
 passport.serializeUser((id,done)=>{
@@ -110,11 +116,6 @@ passport.deserializeUser((id, done)=>{
 // =================================================
 
 // =============== Auth Endpoints ==================
-app.get('/auth', passport.authenticate('auth0'));
-app.get('/auth/callback', passport.authenticate('auth0', {
-      successRedirect: 'http://localhost:3000/#/home'
-    , failureRedirect: 'http://localhost:3000/'
-}));
 app.get('/auth/me',(req, res)=>{
     if(req.user){
         res.status(200).send(req.user)
@@ -131,7 +132,7 @@ app.get('/auth/logout', ((req,res)=>{
 
 // ================ FACEBOOK PASSPORT ==============
 
-app.get('/fb',passport.authenticate('facebook'));
+app.get('/fb',passport.authenticate('facebook',{scope:['public_profile','user_birthday']}));
 app.get('/fb/callback', passport.authenticate('facebook',{
       successRedirect: 'http://localhost:3000/#/home'
     , failureRedirect: 'http://localhost:3000'
@@ -144,18 +145,18 @@ app.get('/fb/callback', passport.authenticate('facebook',{
 // ============== USERS ENDPOINTS ==================================
 // - Update users picture, age, premium, latitude, longitude, and visibilty 
 
-// const {updateUser} = users_ctrl.js
-// app.put('/updateUser', updateUser);
+const {updateUser} = users_ctrl
+app.put('/updateUser', updateUser);
 
 // ============== PROFILE ENDPOINTS ================================
 // - Get profile information associated with logged in user
 // - Sets the user information
 // - Deletes the users account and all the properties associated with the logged in user
 
-// const {getProfile, updateProfile, deleteProfile} = profile_ctrl.js
-// app.get('/getProfile', getProfile);
-// app.put('/updateProfile/:user_id', updateProfile);
-// app.delete('/deleteProfile/:user_id', deleteProfile);
+const {getProfileInfo, updateProfile} = profile_ctrl
+app.get('/getProfileInfo', getProfileInfo);
+app.put('/updateProfile', updateProfile);
+// app.delete('/deleteProfile', deleteProfile);
 
 // ============== CONNECTIONS / LOCAL USERS ENDPOINTS =============
 // - Get list of all possible connections

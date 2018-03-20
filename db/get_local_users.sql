@@ -1,10 +1,16 @@
-SELECT * FROM users
-JOIN profiles ON user_id = profiles_user_id
-WHERE
-gender = $1 AND
-visible = true AND
-age > $2 AND
-age < $3 AND
-user_id NOT IN (SELECT receiver_id
+-- SELECT *, point($1, $2) <@> point (latitude, longtitude):: as distance_range
+-- FROM users
+-- WHERE (point($1, $2) <@> point(latitude, longtitude)) < $3 -- This is the distance in miles
+-- ORDER by distance_range
+
+
+SELECT * 
+FROM users
+WHERE gender = $4
+AND visible = true 
+AND (year from AGE(birthday)) > $5 
+AND (year from AGE(birthday)) < $6
+AND user_id NOT IN 
+(SELECT receiver_id
 FROM connections
-WHERE sender_id = $4)
+WHERE sender_id = $7)

@@ -1,5 +1,5 @@
 INSERT INTO profiles(
-      image
+      profile_user_id
     , hobbies
     , inspirations
     , coffeetea
@@ -29,4 +29,4 @@ VALUES (
     , $12
     , $13
     , $14
-);
+)

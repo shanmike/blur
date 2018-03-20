@@ -17,10 +17,9 @@ class List extends Component {
     return (
       <div className="list-container">
       <div></div>
-        <div className="list-child"> 
-          <div>Yay it worked!</div>
-          <h4>Account information:</h4>
-          <img src={user.picture} alt="" width="200px" height="120px"/>
+        <div className="list-child">
+          <h4 className="list-display">Please Enable GPS</h4>
+          <Maps/>
         </div>
         <div></div>
       </div>

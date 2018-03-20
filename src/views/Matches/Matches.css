@@ -6,16 +6,3 @@
     grid-template-rows: 7% 2% 89% 2%;
 }
 
-/* MATCHES CHILD*/
-.matches-child{
-    display:grid;
-    grid-template-columns: 4% 92% 4%; 
-}
-/* MATCHES WHITE CONTAINER */
-.matches-white-container{
-    background: #fff;
-    height:100%;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-}
