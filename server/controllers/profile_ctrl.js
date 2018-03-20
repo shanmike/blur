@@ -14,6 +14,7 @@ module.exports = {
         }
     }).bind(this),
     updateProfile:((req,res)=>{
+        console.log("PROFILE UPDATE:",req.body);
         const db = req.app.get('db')
         if(req.user){
             const {user_id} = req.user

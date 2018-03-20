@@ -1,5 +1,6 @@
 module.exports = {
     updateUser:((req,res)=>{
+        console.log("USER UPDATE:",req.body);
         const db = req.app.get('db')
         if(req.user){
             const {user_id} = req.user

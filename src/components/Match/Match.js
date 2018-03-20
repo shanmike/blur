@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from '../../components/Navbar/Navbar'
 import ProfileInputStyle from '../ProfileInputStyle/ProfileInputStyle'
 import Search from './Images/lnr-magnifier-orange.svg'
 import './Match.css'

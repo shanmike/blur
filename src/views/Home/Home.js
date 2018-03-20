@@ -15,8 +15,6 @@ export default class Home extends Component {
                 <Navbar/>
                 <div></div>
                 <List/>
-                <div></div>
-                <Buttons/>  
             </div> 
         )
     }

@@ -23,6 +23,7 @@ class ChangeSettings extends React.Component{
         this.setState({
             visible:!this.state.visible
         },()=>{
+            console.log("toggle-front-axios")
             axios.put('/updateUser',this.state)
         })
     }

@@ -1,0 +1,24 @@
+.motion-card-stack {
+    display: grid;
+    grid-template-columns: 345px;
+    grid-template-rows: 641px;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    border-radius: 20px;
+  }
+  
+  .motion-card-item {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    will-change: transform;
+    background: #fff;
+    height: 100%;
+    border-radius: 20px;
+    margin: auto;
+  }
+  
+  .motion-image{
+      margin: auto;
+      border-radius: 20px;
+  }
