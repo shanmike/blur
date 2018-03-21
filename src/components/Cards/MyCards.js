@@ -4,24 +4,28 @@ import Buttons from '../Buttons/Buttons';
 import axios from 'axios';
 import './MyCards.css';
 
+// const data = Array.from(this.state.usersList.map((val, i)=>{
+// 
+// }));
+
 const data = Array.from({ length: 10 }, (_, i) => ({
-    id: new Date().getTime() + i,
-    element: (
-      <div>
-        <img
-          className="motion-image"
-          draggable={false}
-          src={`https://source.unsplash.com/random/${i + 1}`} width={500} height = {500}
-          alt ='user profile'
-        />
-        <div>User information goes here</div>
-      </div>
-    )
-  }));
+  id: new Date().getTime() + i,
+  element: (
+    <div>
+      <div>User information goes here</div>
+    </div>
+  ) 
+}));
 
 export default class MyCards extends React.Component {
+  constructor(){
+    super()
+    this.state={
+      usersList:[]
+    }
+  }
   onSwipeEnd = ({ data }) => {
-    console.log('data', data);
+    // console.log('data', data);
   };
   
   renderButtons(props) {
@@ -30,13 +34,17 @@ export default class MyCards extends React.Component {
     )
   }
 
-  // localUsers(){
-  //   axios.get('/getLocalUsers').then(res=>{
-  //     console.log('Get users list',res.data)
-  //   })
-  // }
+  componentDidMount(){
+    axios.get('/getLocalUsers').then(res=>{
+      // console.log('Get users list',res.data)
+      this.setState({
+        usersList:res.data
+      })
+    })
+  }
   
   render() {
+    console.log('USERS-LIST',this.state.usersList)
     return (
       <div className="demo-wrapper">
         <MotionStack

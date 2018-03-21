@@ -32,8 +32,8 @@ class Information extends React.Component{
         })
     }
 
-    componentDidMount(){
-        this.props.getUser();
+    async componentDidMount(){
+        await this.props.getUser();
         
         axios.get('/getProfileInfo').then((res)=>{
             console.log("Front", res.data)
@@ -75,7 +75,7 @@ class Information extends React.Component{
     }
 
     render(){
-        console.log(this.state)
+        // console.log(this.state)
         const user = this.props.user;
         return(
             <div className="information-child">
@@ -91,18 +91,18 @@ class Information extends React.Component{
                             <button className="about-me-button" onClick={()=>this.updateInformation()}>Save</button>
                         </div>
                         <ProfileInputStyle keyValue={"hobbies"} val = {this.state.hobbies} handleChange={this.handleChange} name="Hobbies" />
-                        <ProfileInputStyle keyValue={"inspirations"} handleChange={this.handleChange} name="Inspirations" />
-                        <ProfileInputStyle keyValue={"coffeetea"} handleChange={this.handleChange} name="Coffee or Tea" />
-                        <ProfileInputStyle keyValue={"favfood"} handleChange={this.handleChange} name="What do you like to eat" />
-                        <ProfileInputStyle keyValue={"travelbeen"} handleChange={this.handleChange} name="Where have you been" />
-                        <ProfileInputStyle keyValue={"travelto"} handleChange={this.handleChange} name="Where do you want to go" />
-                        <ProfileInputStyle keyValue={"bestdone"} handleChange={this.handleChange} name="Best thing you've done"  />
-                        <ProfileInputStyle keyValue={"worstdone"} handleChange={this.handleChange} name="Worst thing you've done"/>
-                        <ProfileInputStyle keyValue={"work"} handleChange={this.handleChange} name="What do you do for work"  />
-                        <ProfileInputStyle keyValue={"school"} handleChange={this.handleChange} name="What did you study in school" />
-                        <ProfileInputStyle keyValue={"goodat"} handleChange={this.handleChange} name="What are you good at" />
-                        <ProfileInputStyle keyValue={"suckat"} handleChange={this.handleChange} name="What do you suck at" />
-                        <ProfileInputStyle keyValue={"songs"}  handleChange={this.handleChange} name="Favorite artists" />
+                        <ProfileInputStyle keyValue={"inspirations"} val = {this.state.inspirations} handleChange={this.handleChange} name="Inspirations" />
+                        <ProfileInputStyle keyValue={"coffeetea"} val = {this.state.coffeetea} handleChange={this.handleChange} name="Coffee or Tea" />
+                        <ProfileInputStyle keyValue={"favfood"} val = {this.state.favfood} handleChange={this.handleChange} name="What do you like to eat" />
+                        <ProfileInputStyle keyValue={"travelbeen"} val = {this.state.travelbeen} handleChange={this.handleChange} name="Where have you been" />
+                        <ProfileInputStyle keyValue={"travelto"} val = {this.state.travelto} handleChange={this.handleChange} name="Where do you want to go" />
+                        <ProfileInputStyle keyValue={"bestdone"} val = {this.state.bestdone} handleChange={this.handleChange} name="Best thing you've done"  />
+                        <ProfileInputStyle keyValue={"worstdone"} val = {this.state.worstdone} handleChange={this.handleChange} name="Worst thing you've done"/>
+                        <ProfileInputStyle keyValue={"work"} val = {this.state.work} handleChange={this.handleChange} name="What do you do for work"  />
+                        <ProfileInputStyle keyValue={"school"} val = {this.state.school} handleChange={this.handleChange} name="What did you study in school" />
+                        <ProfileInputStyle keyValue={"goodat"} val = {this.state.goodat} handleChange={this.handleChange} name="What are you good at" />
+                        <ProfileInputStyle keyValue={"suckat"} val = {this.state.suckat} handleChange={this.handleChange} name="What do you suck at" />
+                        <ProfileInputStyle keyValue={"songs"} val = {this.state.songs}  handleChange={this.handleChange} name="Favorite artists" />
                     </div>
                 </div>
                 <div></div>

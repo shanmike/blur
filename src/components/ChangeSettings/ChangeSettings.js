@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {getUser} from '../../redux/User/user';
+import {getUser, updateUser} from '../../redux/User/user';
 import Toggle from '../Toggle/Toggle';
 import SliderOne from '../Sliders/SliderOne/SliderOne';
 import SliderTwo from '../Sliders/SliderTwo/SliderTwo';
@@ -11,22 +11,20 @@ class ChangeSettings extends React.Component{
     constructor(){
         super()
         this.state={
-              visible:false,
               show_gender:''
         }
         this.toggleChange = this.toggleChange.bind(this)
         this.handleGender = this.handleGender.bind(this)
+        this.sliderChange = this.sliderChange.bind(this)
     }
 
-    toggleChange(){
-        console.log('toggle')
-        this.setState({
-            visible:!this.state.visible
-        },()=>{
-            console.log("toggle-front-axios")
-            axios.put('/updateUser',this.state)
-        })
+    toggleChange(updates){
+        this.props.updateUser(updates)
     }
+
+    sliderChange(updates){
+        this.props.updateUser(updates)
+      }
 
     componentDidMount(){
         this.props.getUser();
@@ -41,7 +39,7 @@ class ChangeSettings extends React.Component{
     }
     
     render(){
-        console.log(this.state.visible)
+        console.log(this.props.user)
         return(
             <div className="change-set-child">
                 <div></div>
@@ -64,7 +62,7 @@ class ChangeSettings extends React.Component{
                             <div className="change-set-title-container">
                                 <div> Maximum Distance</div>
                                 <div className="change-set-distance-slider-container">
-                                    <SliderOne/>
+                                    <SliderOne handleSlider={this.sliderChange} distance_range={this.props.user.distance_range}/>
                                 </div>   
                             </div>   
                         </div>
@@ -74,7 +72,7 @@ class ChangeSettings extends React.Component{
                             <div className="change-set-title-container">
                                 <div>Age Range</div>
                                 <div className="change-set-distance-slider-container">
-                                    <SliderTwo/>
+                                    <SliderTwo handleSlider={this.sliderChange} age_max={this.props.user.age_max} age_min={18}/>
                                 </div>  
                             </div>    
                         </div>
@@ -85,7 +83,7 @@ class ChangeSettings extends React.Component{
                             </div>
                             <div className="notifications">
                                 <div>Use GPS</div>
-                                <Toggle handleChange={this.toggleChange}/>
+                                <Toggle handleChange={this.toggleChange} visible={this.props.user.visible}/>
                             </div>
                         </div>
                     </div>
@@ -122,4 +120,4 @@ function mapStateToProps(state){
           user: state.user
     }
 }
-export default connect(mapStateToProps, {getUser})(ChangeSettings);
+export default connect(mapStateToProps, {getUser, updateUser})(ChangeSettings);

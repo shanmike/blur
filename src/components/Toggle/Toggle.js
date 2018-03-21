@@ -34,7 +34,8 @@ const styles = {
         thumbSwitchedStyle={styles.thumbSwitched}
         trackSwitchedStyle={styles.trackSwitched}
         labelStyle={styles.labelStyle}
-        onToggle = {props.handleChange}
+        onToggle = {()=>props.handleChange({visible:!props.visible})}
+        toggled={props.visible}
       />
     </div>
   );

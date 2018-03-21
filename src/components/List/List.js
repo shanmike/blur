@@ -10,13 +10,13 @@ class List extends Component {
   constructor(){
     super()
     this.state={
-      fetching: false
+      fetching: false,
+
     }
   }
   async componentDidMount(){
       await this.props.getUser();
       if(this.props.user.visible){
-
         navigator.geolocation.getCurrentPosition(
             (position)=>{
               console.log(position)
@@ -33,7 +33,7 @@ class List extends Component {
 
   render(props) {
     const user = this.props.user;
-    console.log(user);
+    // console.log(user);
     return (
       <div className="list-container">
       <div></div>

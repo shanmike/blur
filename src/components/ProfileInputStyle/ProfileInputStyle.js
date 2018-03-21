@@ -19,14 +19,13 @@ const styles = {
 
 const TextFieldExampleCustomize = (props) => (
   <div>
-  {console.log(props.val)}
     <TextField
       floatingLabelText={props.name}
       floatingLabelStyle={styles.floatingLabelStyle}
       floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
       underlineFocusStyle={styles.underlineStyle}
       onChange = {(e)=>{props.handleChange(e.target.value, props.keyValue)}}
-      // defaultValue={`${props.val}`}
+      value={`${props.val}`}
     />
   </div>
 );

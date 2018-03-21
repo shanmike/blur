@@ -6,10 +6,11 @@ const initialState = {
 
 const GET_USER = "GET_USER";
 const _FULFILLED = "_FULFILLED";
+const UPDATE_USER = "UPDATE_USER"
 
 export function getUser(){
     let userData = axios.get('/auth/me').then(res => {
-        console.log(res.data)
+        // console.log(res.data)
         return res.data
     })
     return{
@@ -18,9 +19,21 @@ export function getUser(){
     }
 }
 
+export function updateUser(updates){
+    let userUpdate = axios.put('/updateUser', updates).then(res=>{
+        return res.data
+    })
+    return{
+          type:UPDATE_USER
+        , payload: userUpdate
+    }
+}
+
 export default function reducer(state = initialState, action){
     switch (action.type) {
         case GET_USER + _FULFILLED:
+            return Object.assign({}, state, {user:action.payload})
+        case UPDATE_USER +_FULFILLED:
             return Object.assign({}, state, {user:action.payload})
         default: 
             return state;
