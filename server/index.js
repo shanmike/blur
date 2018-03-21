@@ -7,7 +7,7 @@ const express = require('express')
     , massive = require('massive')
     , FacebookStrategy = require('passport-facebook')
     , users_ctrl = require('./controllers/users_ctrl')
-    // , connections_ctrl = require('./controllers/connections_ctrl')
+    , connections_ctrl = require('./controllers/connections_ctrl')
     // , matches_ctrl = require('./controllers/matches_ctrl')
     // , messages_ctrl = require('./controllers/messages_ctrl')
     , profile_ctrl = require('./controllers/profile_ctrl')
@@ -160,8 +160,8 @@ app.put('/updateProfile', updateProfile);
 // ============== CONNECTIONS / LOCAL USERS ENDPOINTS =============
 // - Get list of all possible connections
 
-// const {getLocalUsers} = connections_ctrl.js
-// app.get('/getLocalUsers', getLocalUsers);
+const {getLocalUsers} = connections_ctrl
+app.get('/getLocalUsers', getLocalUsers);
 
 // ============== MATCHES ENDPOINTS ===============================
 // - Get list of all the people user matched with

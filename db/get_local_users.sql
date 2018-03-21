@@ -1,12 +1,12 @@
-SELECT *, point($1, $2) <@> point (latitude, longtitude):: as distance_from_user
-FROM users
-WHERE (point($1, $2) <@> point(latitude, longtitude)) < $3 -- This is the distance in miles
-AND gender = $4
-AND visible = true 
-AND date_part('year', AGE(birthday)) > $5 
-AND date_part('year', AGE(birthday)) < $6
-AND user_id NOT IN 
-(SELECT receiver_id
-FROM connections
-WHERE sender_id = $7)
-ORDER by distance_from_user
+-- SELECT *, point(latitude, longitude) <@> point (latitude, longitude)::point as distance_from_user
+-- FROM users
+-- WHERE (point(latitude, longitude) <@> point(latitude, longitude)) < distance_range -- This is the distance in miles
+-- AND gender = show_gender
+-- AND visible = true
+-- AND date_part('year', AGE(birthday)) > age_min 
+-- AND date_part('year', AGE(birthday)) < age_max
+-- -- AND user_id NOT IN 
+-- -- (SELECT receiver_id
+-- -- FROM connections
+-- -- WHERE sender_id = $7)
+-- ORDER by distance_from_user

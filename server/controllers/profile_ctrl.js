@@ -1,5 +1,5 @@
 module.exports = {
-    getProfileInfo:((req,res, next)=>{
+    getProfileInfo:((req,res,next)=>{
         const db = req.app.get('db')
         if(req.user){
             const {user_id} = req.user

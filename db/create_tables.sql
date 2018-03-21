@@ -58,7 +58,7 @@ WHERE user_id = $1
 SELECT * FROM users
 WHERE auth_id = $1
 
--- ========== GET  LOCAL USERS ========
+-- ========== GET LOCAL USERS ========
 SELECT * 
 FROM users
 JOIN profiles 

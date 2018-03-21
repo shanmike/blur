@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-
 import Navbar from '../../components/Navbar/Navbar'
-import Buttons from '../../components/Buttons/Buttons'
 import List from '../../components/List/List'
 import './Home.css'
 
