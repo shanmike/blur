@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import {getUser} from '../../redux/User/user';
 import MyCards from '../Cards/MyCards';
-// import Progress from '../Progress/Progress'
+import Progress from '../Progress/Progress'
 import axios from 'axios';
 import './List.css'
 
@@ -32,13 +32,12 @@ class List extends Component {
   }
 
   render(props) {
-    const user = this.props.user;
     // console.log(user);
     return (
       <div className="list-container">
       <div></div>
         <div className="list-child">
-       <MyCards/>
+        {this.props.user.visible? <MyCards/> : <Progress/>}
         </div>
         <div></div>
       </div>

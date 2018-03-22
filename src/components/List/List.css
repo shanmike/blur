@@ -2,7 +2,8 @@
 
 .list-container {
     display: grid;
-    grid-template-columns: 4% 92% 4%
+    grid-template-columns: 4% 92% 4%;
+
 }
 
 /* LIST CHILD */
@@ -14,7 +15,9 @@
     text-align: center;
     /* box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4); */
     display: grid;
-    grid-template-rows: 20% 80%
+    grid-template-rows: 20% 80%;
+    margin:auto;
+    
 }
 .list-display{
     margin: auto;

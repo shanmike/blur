@@ -79,19 +79,19 @@ passport.use(new FacebookStrategy({
             ]).then(createdUser=>{
                 db.create_inital_profile([
                     createdUser[0].user_id
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
-                  , null
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
+                  , ''
               ]).then(()=>{
                 done(null, createdUser[0].user_id)
               })   

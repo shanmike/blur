@@ -15,7 +15,12 @@
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
     overflow: scroll;
     display: grid;
-    grid-template-rows: 4% 30% 10% 60%
+    grid-template-rows: 4% 30% 10% 60%;
+    min-width: 345px;
+    max-width: 345px;
+    max-height: 722.68px;
+    min-height: 722.68px;
+    margin:auto;
 }
 ::-webkit-scrollbar {
     display: none;

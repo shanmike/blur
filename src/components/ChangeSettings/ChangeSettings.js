@@ -92,7 +92,7 @@ class ChangeSettings extends React.Component{
                             <div className="change-set-title-container">Notifications</div>
                             <div className="notifications">
                                 <div>New Match</div>
-                                <Toggle/>
+                                <Toggle placeholder/>
                             </div>
                             <div className="notifications">
                                 <div>New Message</div>

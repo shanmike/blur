@@ -21,7 +21,7 @@ export default class Buttons extends Component {
             </button>
         </div>
         <div className="bottom-btn">
-            <button className="bottom-buttons">
+            <button onClick={this.props.buttonProps.accept} className="bottom-buttons">
                 <img src={Heart} alt="" className="bottom-btn-img"/>
             </button>
         </div>

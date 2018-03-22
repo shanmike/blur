@@ -7,6 +7,9 @@
     left: 0;
     right:0;
     width: 100%;
+    max-width:  375px;
+    margin: auto;
+
 }
 
 /* BOTTOM BUTTONS */
@@ -25,4 +28,5 @@
 .bottom-buttons{
     background: none;
     border: none;
+    text-decoration: none;
 }

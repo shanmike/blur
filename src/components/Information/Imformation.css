@@ -22,7 +22,12 @@
     text-align: center;
     color: #7D7D7D;
     display: grid;
-    grid-template-rows: 50% 50%
+    grid-template-rows: 50% 50%;
+    min-width: 345px;
+    max-width: 345px;
+    /* max-height: 722.68px; */
+    min-height: 722.68px;
+    margin:auto;
 }
 
 ::-webkit-scrollbar {

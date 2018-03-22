@@ -12,7 +12,8 @@ const data = Array.from({ length: 10 }, (_, i) => ({
   id: new Date().getTime() + i,
   element: (
     <div>
-      <div>User information goes here</div>
+      <h2>User information goes here</h2>
+      <h3>{`User Count: ${i+1}`}</h3>
     </div>
   ) 
 }));

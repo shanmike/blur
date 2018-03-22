@@ -14,7 +14,12 @@
     text-align: center;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
     display: grid;
-    grid-template-rows: 15% 20% 65%
+    grid-template-rows: 15% 20% 65%;
+    min-width: 345px;
+    max-width: 345px;
+    max-height: 722.68px;
+    /* min-height: 722.68px; */
+    margin: auto;
 }
 
 /* MATCH TITLE */
