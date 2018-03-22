@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router-dom'
 import './Navbar.css'
-import imguser from './Images/lnr-user-gray.svg'
-import imgmsg from './Images/lnr-bubble-gray.svg'
+import imguser from './Images/lnr-user.svg'
+import imgmsg from './Images/lnr-bubble.svg'
 
 export default class Navbar extends Component {
   render() {
