@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Buttons.css'
-import Heart from './Images/lnr-heart.svg'
+import Heart from './Images/Inr-heart.svg'
 import Arrow from './Images/lnr-arrow-left-circle.svg'
 import Dislike from './Images/lnr-thumbs-down.svg'
 import Like from './Images/lnr-thumbs-up.svg'
