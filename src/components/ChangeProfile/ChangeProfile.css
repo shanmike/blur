@@ -102,8 +102,7 @@
 
 .logout-button {
     margin: auto;
-    background: linear-gradient(180deg, #74879C 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #74879C;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(180deg, #F2C391 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #EE964B;    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
     border: none;
     padding: 10px 20px;
     border-radius: 10px;
