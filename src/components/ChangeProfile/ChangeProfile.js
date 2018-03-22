@@ -43,7 +43,7 @@ class ChangeProfile extends React.Component{
                     
                         <div className="change-profile-logout">
                            <div className="change-profile-button">
-                                <a href='http://localhost:4567/auth/logout'><button className="logout-button">Log out</button></a>
+                                <a href='/auth/logout'><button className="logout-button">Log out</button></a>
                            </div>
                            <div className="change-profile-button">
                                 <button className="delete-account">Delete Account</button>
