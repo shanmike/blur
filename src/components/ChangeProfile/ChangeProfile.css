@@ -3,6 +3,7 @@
 .change-profile-child {
     display: grid;
     grid-template-columns: 4% 92% 4%;
+    position: relative;
 }
 
 /* change-profile WHITE CONTAINER */
@@ -19,7 +20,7 @@
     min-width: 345px;
     max-width: 345px;
     max-height: 722.68px;
-    min-height: 722.68px;
+    /* min-height: 700px; */
     margin:auto;
 }
 ::-webkit-scrollbar {

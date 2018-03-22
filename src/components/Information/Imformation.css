@@ -25,8 +25,8 @@
     grid-template-rows: 50% 50%;
     min-width: 345px;
     max-width: 345px;
-    /* max-height: 722.68px; */
-    min-height: 722.68px;
+    max-height: 722.68px;
+    /* min-height: 700.68px; */
     margin:auto;
 }
 
