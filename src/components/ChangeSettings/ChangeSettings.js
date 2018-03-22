@@ -79,7 +79,7 @@ class ChangeSettings extends React.Component{
                     </div>
                     <div className="change-set-gray-container">
                         <div className="change-set-gray-box">
-                            <div className="change-set-title-container">Show me on Frivoler
+                            <div className="change-set-title-container">Show me on Blur
                             </div>
                             <div className="notifications">
                                 <div>Use GPS</div>

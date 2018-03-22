@@ -23,10 +23,15 @@ const {
     , CONNECTION_STRING
     , APP_SECRET
     , APP_ID
+    , FB_CALLBACK
+    , FB_LOGOUT_REDIRECT
+    , FB_REDIRECT
+    , FB_FAIL_REDIRECT
 }   = process.env;
 // =================================================
 
 const app = express();
+app.use(express.static(`${__dirname}/../build`));
 app.use(bodyParser.json())
 
 // =========== MASSIVE =============================
@@ -51,7 +56,7 @@ app.use(passport.session());
 passport.use(new FacebookStrategy({
     clientID: APP_ID,
     clientSecret: APP_SECRET,
-    callbackURL: "http://localhost:4567/fb/callback",
+    callbackURL: FB_CALLBACK,
     profileFields:['id','displayName','birthday','email','gender','picture.width(500).height(500)']
   },
   function(accessToken, refreshToken, profile, done) {
@@ -125,7 +130,7 @@ app.get('/auth/me',(req, res)=>{
 
 app.get('/auth/logout', ((req,res)=>{
     req.logOut();
-    res.redirect('http://localhost:3000')
+    res.redirect(FB_LOGOUT_REDIRECT)
 }));
 // =================================================
 
@@ -133,8 +138,8 @@ app.get('/auth/logout', ((req,res)=>{
 
 app.get('/fb',passport.authenticate('facebook',{scope:['public_profile','user_birthday','email']}));
 app.get('/fb/callback', passport.authenticate('facebook',{
-      successRedirect: 'http://localhost:3000/#/home'
-    , failureRedirect: 'http://localhost:3000'
+      successRedirect: FB_REDIRECT
+    , failureRedirect: FB_FAIL_REDIRECT
 }));
 // =================================================
 

@@ -4,9 +4,6 @@ import Buttons from '../Buttons/Buttons';
 import axios from 'axios';
 import './MyCards.css';
 
-// const data = Array.from(this.state.usersList.map((val, i)=>{
-// 
-// }));
 
 const data = Array.from({ length: 10 }, (_, i) => ({
   id: new Date().getTime() + i,

@@ -1,8 +1,7 @@
 /* PROFILE CONTAINER */
 
 .profile-container {
-    background: linear-gradient(213.52deg, #FFFFFF -0.05%, rgba(255, 255, 255, 0) 100.66%), linear-gradient(330.55deg, #28AFB0 30.93%, rgba(255, 255, 255, 0) 67.74%), #EE964B;
-    height: 100vh;
+    background: linear-gradient(213.52deg, #E0E0E0 -0.05%, rgba(255, 255, 255, 0) 100.66%), linear-gradient(330.55deg, #E0E0E0 30.93%, rgba(255, 255, 255, 0) 67.74%), #A3A3A3;    height: 100vh;
     display: grid;
     grid-template-rows: 7% 2% 89% 2%;
 }

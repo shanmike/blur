@@ -15,11 +15,13 @@
 /* BOTTOM BUTTONS */
 .bottom-btn{
     margin:auto;
+    border: none;
 }
 
 /* BOTTOM BUTTON IMAGES */
 .bottom-btn-img{
     height:50px;
+    border: none;
     margin: auto;
     background: #fff;
     border-radius: 50%;
@@ -29,4 +31,8 @@
     background: none;
     border: none;
     text-decoration: none;
+}
+
+.bottom_buttons:active{
+    border: none;
 }

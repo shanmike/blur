@@ -6,10 +6,10 @@ export default class Login extends Component {
         return (
             <div className='box login_container'> 
                 <div></div>
-                <div className="box app-logo">F</div>
+                <div className="box app-logo"></div>
                 <div></div>
                 <div></div>
-                <div className="box app-name">Frivoler</div>
+                <div className="box app-name">Blur</div>
                 <div></div>
                 <div></div>
                 <div className="box app-btn-container">

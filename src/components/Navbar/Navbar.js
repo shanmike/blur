@@ -12,7 +12,7 @@ export default class Navbar extends Component {
           <Link to="/profile"><img src={imguser} alt="" className="user-img"/></Link>    
         </div>
         <div className="f-logo-btn">
-          <Link to='/home' className="f-btn">F</Link>
+          <Link to='/home' className="f-btn">B</Link>
         </div>
         <div className="nav-btn">
             <Link to="/matches"><img src={imgmsg} alt="" className="user-img"/></Link>

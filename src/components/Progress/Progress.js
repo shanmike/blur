@@ -5,7 +5,7 @@ import './Progress.css'
 
 const CircularProgressExampleSimple = () => (
   <div className="loading">
-    <div className="landing-welcome">Welcome to Frivoler!</div>
+    <div className="landing-welcome">Welcome to Blur!</div>
     <div className="landing-gps">
       <div>Your Card is Hidden</div>
       <div>Enable Discovery to meet new people</div>

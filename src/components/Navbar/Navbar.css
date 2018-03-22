@@ -1,6 +1,6 @@
 /* NAVBAR CONTAINER */
 .navbar-container {
-    background: linear-gradient(180deg, #BCBCD1 0%, rgba(255, 255, 255, 0) 100%), #FFFFFF;
+    background: linear-gradient(180deg, #74879C 0%, rgba(255, 255, 255, 0) 100%), linear-gradient(180deg, #FFFFFF 0%, rgba(255, 255, 255, 0) 100%), #74879C;    
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     display:grid;
     grid-template-columns: 20% 60% 20%;

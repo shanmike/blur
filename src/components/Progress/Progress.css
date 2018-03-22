@@ -7,14 +7,14 @@
 }
 .landing-welcome{
     margin: auto;
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0px 4px 4px #415A77;
     color: #FFFFFF;
     font-family: Playball;
     font-size: 60px;
 }
 .landing-gps{
     /* margin: auto; */
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.4);
+    text-shadow: 0px 4px 4px #415A77;
     color: #FFFFFF;
     font-family: Ovo;
     font-size: 20px;
