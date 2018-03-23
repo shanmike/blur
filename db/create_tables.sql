@@ -181,24 +181,25 @@ WHERE profile_user_id = $1
 -- ======= CONNECTIONS TABLE ==========
 CREATE TABLE IF NOT EXISTS connections(
       connection_id SERIAL PRIMARY KEY
-    , sender_id FOREIGN KEY
-    , reciever_id FOREIGN KEY
-    , reaction TEXT
-    , date DATE
+    , sender_id INT REFERENCES users(user_id)
+    , reciever_id INT REFERENCES users(user_id)
+    , sender_reaction TEXT
+    , reciever_reaction TEXT
+    , date_connected DATE
 );
 
--- ========== MATCHES TABLE ==========
-CREATE TABLE IF NOT EXISTS matches (
-      match_id SERIAL PRIMARY KEY
-    , sender_id FOREIGN KEY
-    , reciever_id FOREIGN KEY 
-    , date DATE 
-);
+-- -- ========== MATCHES TABLE ==========
+-- CREATE TABLE IF NOT EXISTS matches (
+--       match_id SERIAL PRIMARY KEY
+--     , sender_id INT REFERENCES users(user_id)
+--     , reciever_id INT REFERENCES users(user_id)
+--     , date_created DATE 
+-- );
 
 -- ========= MESSAGE TABLE ===========
 CREATE TABLE IF NOT EXISTS messages(
       message_id SERIAL PRIMARY KEY
-    , match_id FOREIGN KEY
-    , message VARCHAR(350)
-    , messagetime TIME
+    , match_id INT REFERENCES matches(match_id)
+    , messages VARCHAR(350)
+    , message_time TIME
 );

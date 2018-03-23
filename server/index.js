@@ -25,13 +25,13 @@ const {
     , APP_ID
     , FB_CALLBACK
     , FB_LOGOUT_REDIRECT
-    , FB_REDIRECT
+    , FB_REDIRECT_DEV
     , FB_FAIL_REDIRECT
 }   = process.env;
 // =================================================
 
 const app = express();
-app.use(express.static(`${__dirname}/../build`));
+// app.use(express.static(`${__dirname}/../build`));
 app.use(bodyParser.json())
 
 // =========== MASSIVE =============================
