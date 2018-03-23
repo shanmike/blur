@@ -25,7 +25,7 @@ const {
     , APP_ID
     , FB_CALLBACK
     , FB_LOGOUT_REDIRECT
-    , FB_REDIRECT_DEV
+    , FB_REDIRECT
     , FB_FAIL_REDIRECT
 }   = process.env;
 // =================================================
