@@ -126,9 +126,6 @@ VALUES (
 
 where profile_user_id = $1
 
---turn on the magic
-CREATE EXTENSION cube;
-CREATE EXTENSION earthdistance;
 
 -- ===== UPDATE PROFILE ==============
 UPDATE TABLE profiles(  
@@ -163,6 +160,9 @@ SET
 
 WHERE user_id = $14
 
+--turn on the magic
+CREATE EXTENSION cube;
+CREATE EXTENSION earthdistance;
 
 -- ===== JOIN USER TO PROFILE ========
 SELECT * 
@@ -182,24 +182,86 @@ WHERE profile_user_id = $1
 CREATE TABLE IF NOT EXISTS connections(
       connection_id SERIAL PRIMARY KEY
     , sender_id INT REFERENCES users(user_id)
-    , reciever_id INT REFERENCES users(user_id)
-    , sender_reaction TEXT
-    , reciever_reaction TEXT
+    , reciever_id INT 
+    , reaction BOOLEAN
     , date_connected DATE
 );
+-- ====== CONNECTION CREATE ==========
+INSERT INTO connections(
+      sender_id
+    , reciever_id
+    , reaction
+    , date_connected
+)
+VALUES (
+      $1
+    , $2
+    , $3
+    , $4
+)
+-- ====== CONNECTION UPDATE ========== 
+UPDATE TABLE connections(
+      sender_id
+    , reciever_id
+    , reaction
+    , date_connected
+)
+SET (
+      $1
+    , $2
+    , $3
+    , $4
+)
+-- ========== MATCHES TABLE ==========
+CREATE TABLE IF NOT EXISTS matches (
+      match_id SERIAL PRIMARY KEY
+    , sender_id REFERENCES users(user_id)
+    , reciever_id REFERENCES connections(reciever_id)
+    , date_created DATE 
+);
 
--- -- ========== MATCHES TABLE ==========
--- CREATE TABLE IF NOT EXISTS matches (
---       match_id SERIAL PRIMARY KEY
---     , sender_id INT REFERENCES users(user_id)
---     , reciever_id INT REFERENCES users(user_id)
---     , date_created DATE 
--- );
+-- ========== MATCHES CREATE ========
+INSERT INTO matches (
+      sender_id
+    , reciever_id 
+    , date_created
+)
+VALUES (
+      $1
+    , $2
+    , $3
+)
 
 -- ========= MESSAGE TABLE ===========
 CREATE TABLE IF NOT EXISTS messages(
       message_id SERIAL PRIMARY KEY
     , match_id INT REFERENCES matches(match_id)
+    , user_id INT REFERENCES users(user_id)
     , messages VARCHAR(350)
     , message_time TIME
 );
+
+-- ======== MESSAGE CREATE ==========
+INSERT INTO messages(
+      match_id
+    , user_id
+    , messages
+    , message_time
+)
+VALUES (
+      $1
+    , $2
+    , $3
+    , $4
+)
+-- ======= MESSAGE UPDATE ==========
+UPDATE TABLE messages(
+      user_id
+    , messages
+    , message_time
+)
+SET (
+      $1
+    , $2
+    , $3
+)

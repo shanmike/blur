@@ -25,13 +25,13 @@ const {
     , APP_ID
     , FB_CALLBACK
     , FB_LOGOUT_REDIRECT
-    , FB_REDIRECT
+    , FB_REDIRECT_DEV
     , FB_FAIL_REDIRECT
 }   = process.env;
 // =================================================
 
 const app = express();
-app.use(express.static(`${__dirname}/../build`));
+// app.use(express.static(`${__dirname}/../build`));
 app.use(bodyParser.json())
 
 // =========== MASSIVE =============================
@@ -138,7 +138,7 @@ app.get('/auth/logout', ((req,res)=>{
 
 app.get('/fb',passport.authenticate('facebook',{scope:['public_profile','user_birthday','email']}));
 app.get('/fb/callback', passport.authenticate('facebook',{
-      successRedirect: FB_REDIRECT
+      successRedirect: FB_REDIRECT_DEV
     , failureRedirect: FB_FAIL_REDIRECT
 }));
 // =================================================
@@ -171,8 +171,9 @@ app.get('/getLocalUsers', getLocalUsers);
 // ============== MATCHES ENDPOINTS ===============================
 // - Get list of all the people user matched with
 
-// const {getMatches} = matches_ctrl.js
+// const {getMatches, updateMatches} = matches_ctrl.js
 // app.get('/getMatches', getMatches);
+// app.put('/updateMatches', updateMatches);
 
 // ============== MESSAGES ENDPOINTS ==============================
 // - Get list of all the messages associated with the logged in user
