@@ -31,6 +31,7 @@
     background: none;
     border: none;
     text-decoration: none;
+    outline:none;
 }
 
 .bottom_buttons:active{

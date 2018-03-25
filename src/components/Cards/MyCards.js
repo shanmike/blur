@@ -37,27 +37,67 @@ export default class MyCards extends React.Component {
     const data = Array.from(this.state.usersList, (user, i) => ({
       id: user.user_id,
       element: (
-        <div className="user-list-container">
+        <div className={user.premium?"user-list-container-premium":"user-list-container"}>
           <div>
             <div className="user-list-image-container">
-              <img src={user.picture} className="user-list-image" alt=""/>
+              <img src={user.picture} className={!user.premium?"user-list-image-premium":"user-list-image"} alt=""/>
             </div>
             <div className="user-list-name">{user.name}</div>
           </div>
+          
           <div className="user-list-info-container">
-            <div className="user-list-hobbies">{user.hobbies}</div>
-            <div className="user-list-hobbies">{user.inspirations}</div>
-            <div className="user-list-hobbies">{user.coffeetea}</div>
-            <div className="user-list-hobbies">{user.favfood}</div>
-            <div className="user-list-hobbies">{user.travelbeen}</div>
-            <div className="user-list-hobbies">{user.travelto}</div>
-            <div className="user-list-hobbies">{user.bestdone}</div>
-            <div className="user-list-hobbies">{user.worstdone}</div>
-            <div className="user-list-hobbies">{user.work}</div>
-            <div className="user-list-hobbies">{user.school}</div>
-            <div className="user-list-hobbies">{user.goodat}</div>
-            <div className="user-list-hobbies">{user.suckat}</div>
-            <div className="user-list-hobbies">{user.songs}</div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.hobbies?`Hobbies:`:null}</div>
+              <div className="user-list-description">{user.hobbies}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.inspirations?`Inspirations:`:null}</div>
+              <div className="user-list-description">{user.inspirations}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.coffeetea?`Coffee or Tea:`:null}</div>
+              <div className="user-list-description">{user.coffeetea}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.favfood?`What do you like to eat:`:null}</div>
+              <div className="user-list-description">{user.favfood}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.travelbeen?`Where have you been:`:null}</div>
+              <div className="user-list-description">{user.travelbeen}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.travelto?`Where do you want to go:`:null}</div>
+              <div className="user-list-description">{user.travelto}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.bestdone?`Best thing you've done:`:null}</div>
+              <div className="user-list-description">{user.bestdone}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.worstdone?`Worst thing you've done:`:null}</div>
+              <div className="user-list-description">{user.worstdone}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.work?`What do you do for work:`:null}</div>
+              <div className="user-list-description">{user.work}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.school?`What did you study in school:`:null}</div>
+              <div className="user-list-description">{user.school}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.goodat?`What are you good at:`:null}</div>
+              <div className="user-list-description">{user.goodat}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.suckat?`What do you suck at:`:null}</div>
+              <div className="user-list-description">{user.suckat}</div>
+            </div>
+            <div className="user-list-information">
+              <div className="user-list-title">{user.songs?`Favorite bands:`:null}</div>
+              <div className="user-list-description">{user.songs}</div>
+            </div>
           </div>
         </div>
       ) 

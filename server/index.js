@@ -8,9 +8,10 @@ const express = require('express')
     , FacebookStrategy = require('passport-facebook')
     , users_ctrl = require('./controllers/users_ctrl')
     , connections_ctrl = require('./controllers/connections_ctrl')
-    // , matches_ctrl = require('./controllers/matches_ctrl')
+    , matches_ctrl = require('./controllers/matches_ctrl')
     // , messages_ctrl = require('./controllers/messages_ctrl')
     , profile_ctrl = require('./controllers/profile_ctrl')
+    , socket = require('socket.io')
 
 // ============ DOTENV =============================
 const {
@@ -28,9 +29,9 @@ const {
     , FB_REDIRECT_DEV
     , FB_FAIL_REDIRECT
 }   = process.env;
-// =================================================
-
-const app = express();
+//  ================= INVOKE =======================
+const app = express()
+    , io = socket(app.listen(SERVER_PORT, ()=> console.log(`Sockets on port ${SERVER_PORT}`)))
 // app.use(express.static(`${__dirname}/../build`));
 app.use(bodyParser.json())
 
@@ -39,7 +40,6 @@ massive(CONNECTION_STRING).then(db=>{
     app.set('db', db);
     app.listen(SERVER_PORT, () => console.log(`Let it thrive on: ${SERVER_PORT}`));
 });
-// =================================================
 
 // ============ AUTH ==============================
 app.use(session({
@@ -50,7 +50,6 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-// =================================================
 
 // ======== FACEBOOK AUTH===========================
 passport.use(new FacebookStrategy({
@@ -105,7 +104,6 @@ passport.use(new FacebookStrategy({
     });
   }
 ));
-// ================================================
 
 // ============ SERIALIZE / DESERIALIZE ============
 passport.serializeUser((id,done)=>{
@@ -117,7 +115,6 @@ passport.deserializeUser((id, done)=>{
         return done(null, user[0]);
     })
 });
-// =================================================
 
 // =============== Auth Endpoints ==================
 app.get('/auth/me',(req, res)=>{
@@ -132,7 +129,6 @@ app.get('/auth/logout', ((req,res)=>{
     req.logOut();
     res.redirect(FB_LOGOUT_REDIRECT)
 }));
-// =================================================
 
 // ================ FACEBOOK PASSPORT ==============
 
@@ -141,44 +137,55 @@ app.get('/fb/callback', passport.authenticate('facebook',{
       successRedirect: FB_REDIRECT_DEV
     , failureRedirect: FB_FAIL_REDIRECT
 }));
-// =================================================
 
 
-// ============== FRONTEND ENDPOINTS ===============================
-//
+// ================ SOCKETS ========================
+
+io.on('connection', socket =>{
+    console.log('User Connected')
+    socket.emit("Welcome",{})
+
+    socket.on('Message Sent', function(data){
+        console.log("Sockets Data", data)
+        const db = app.get('db')
+        db.messages.insert(data).then(()=>{
+            db.run(`select * from messages where match_id = ${data.match_id}`).then((messages)=>{
+                io.to(data.match_id).emit("Received Message", messages)
+            })
+        })
+    })
+
+    socket.on("Join room", data => {
+        console.log("Room Joined",data.match_id)
+        socket.join(data.match_id);
+        io.to(data.match_id).emit('Room joined', data.match_id)
+    })
+    socket.on('Disconnect',()=>{
+        console.log('User Disconnected')
+    })
+})
+
+
+
+
 // ============== USERS ENDPOINTS ==================================
-// - Update users picture, age, premium, latitude, longitude, and visibilty 
-
 const {updateUser} = users_ctrl
 app.put('/updateUser', updateUser);
 
 // ============== PROFILE ENDPOINTS ================================
-// - Get profile information associated with logged in user
-// - Sets the user information
-// - Deletes the users account and all the properties associated with the logged in user
-
 const {getProfileInfo, updateProfile} = profile_ctrl
 app.get('/getProfileInfo', getProfileInfo);
 app.put('/updateProfile', updateProfile);
 // app.delete('/deleteProfile', deleteProfile);
 
 // ============== CONNECTIONS / LOCAL USERS ENDPOINTS =============
-// - Get list of all possible connections
-
 const {getLocalUsers} = connections_ctrl
 app.get('/getLocalUsers', getLocalUsers);
 
 // ============== MATCHES ENDPOINTS ===============================
-// - Get list of all the people user matched with
-
-// const {getMatches, updateMatches} = matches_ctrl.js
-// app.get('/getMatches', getMatches);
-// app.put('/updateMatches', updateMatches);
+const {getMatches} = matches_ctrl
+app.get('/getMatches', getMatches);
 
 // ============== MESSAGES ENDPOINTS ==============================
-// - Get list of all the messages associated with the logged in user
-// - Update Messages table with the logged in user
-
-// const {getMessage, addNewMessage} = messages_ctrl.js
+// const {getMessage} = messages_ctrl
 // app.get('/getMessage', getMessage);
-// app.post('/addNewMessage', addNewMessage);

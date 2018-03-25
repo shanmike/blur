@@ -102,7 +102,7 @@ class Information extends React.Component{
                         <ProfileInputStyle keyValue={"school"} val = {this.state.school} handleChange={this.handleChange} name="What did you study in school" />
                         <ProfileInputStyle keyValue={"goodat"} val = {this.state.goodat} handleChange={this.handleChange} name="What are you good at" />
                         <ProfileInputStyle keyValue={"suckat"} val = {this.state.suckat} handleChange={this.handleChange} name="What do you suck at" />
-                        <ProfileInputStyle keyValue={"songs"} val = {this.state.songs}  handleChange={this.handleChange} name="Favorite artists" />
+                        <ProfileInputStyle keyValue={"songs"} val = {this.state.songs}  handleChange={this.handleChange} name="Favorite bands" />
                     </div>
                 </div>
                 <div></div>

@@ -56,3 +56,7 @@
 .search-img{
     margin: auto;
 }
+.match-message-container{
+    display: grid;
+    grid-template-rows: 7%
+}

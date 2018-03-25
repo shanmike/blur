@@ -2,6 +2,7 @@ import React from 'react';
 import ProfileInputStyle from '../ProfileInputStyle/ProfileInputStyle'
 import Search from './Images/lnr-magnifier-orange.svg'
 import './Match.css'
+import Preview from '../Preview/Preview'
 
 export default class Match extends React.Component{
     render(){
@@ -16,20 +17,12 @@ export default class Match extends React.Component{
                     <div className="new-match-container">
                         <div className="match-title">New Matches</div>
                         <div className="new-matches">
-                            <div></div>
-                            <div></div>
-                            <div></div>
+                            
                         </div>
                     </div>
                     <div className="match-message-container">
                          <div className="match-title">Message</div>
-                         <div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                         </div>
+                         <Preview/>
                     </div>
                 </div>
                 <div></div>

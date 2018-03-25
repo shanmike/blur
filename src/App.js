@@ -6,6 +6,7 @@ import Profile from './views/Profile/Profile'
 import Matches from './views/Matches/Matches'
 import Settings from './views/Settings/Settings'
 import Info from './views/Info/Info'
+import Message from './components/Message/Message'
 
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
             <Route path='/matches' component={Matches}/>
             <Route path='/settings' component={Settings}/>
             <Route path='/info' component={Info}/>
+            <Route path='/message' component={Message} />
           </Switch>
         </HashRouter>
       </div>

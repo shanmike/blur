@@ -59,18 +59,21 @@ SELECT * FROM users
 WHERE auth_id = $1
 
 -- ========== GET LOCAL USERS ========
-SELECT * 
+SELECT *, point(40.2502215, -111.6892339) <@> point (latitude, longitude)::point as distance_from_user
 FROM users
-JOIN profiles 
-ON user_id = profiles_user_id
-WHERE gender = $1 
-AND visible = true 
-AND age > $2 
-AND age < $3 
+JOIN profiles ON user_id = profile_user_id
+WHERE (point(40.2502215, -111.6892339) <@> point(latitude, longitude)) < 3-- This is the distance in miles
+AND user_id != 2
+AND gender = 'male'
+AND visible = true
+AND date_part('year', AGE(birthday)) > 18 
+AND date_part('year', AGE(birthday)) < 34
 AND user_id NOT IN 
 (SELECT receiver_id
 FROM connections
-WHERE sender_id = $4)
+WHERE sender_id = 2)
+ORDER by distance_from_user
+
 
 -- ======== PROFILE TABLE =============
 CREATE TABLE IF NOT EXISTS profiles(
@@ -235,17 +238,17 @@ VALUES (
 -- ========= MESSAGE TABLE ===========
 CREATE TABLE IF NOT EXISTS messages(
       message_id SERIAL PRIMARY KEY
-    , match_id INT REFERENCES matches(match_id)
-    , user_id INT REFERENCES users(user_id)
-    , messages VARCHAR(350)
-    , message_time TIME
+    , match_id INT 
+    , user_id INT 
+    , message VARCHAR(350)
+    , message_time INT
 );
 
 -- ======== MESSAGE CREATE ==========
 INSERT INTO messages(
       match_id
     , user_id
-    , messages
+    , message
     , message_time
 )
 VALUES (
@@ -254,14 +257,29 @@ VALUES (
     , $3
     , $4
 )
--- ======= MESSAGE UPDATE ==========
-UPDATE TABLE messages(
-      user_id
-    , messages
-    , message_time
-)
-SET (
-      $1
-    , $2
-    , $3
-)
+-- -- ======= MESSAGE UPDATE ==========
+-- UPDATE TABLE messages(
+--       user_id
+--     , message
+--     , message_time
+-- )
+-- SET (
+--       $1
+--     , $2
+--     , $3
+-- )
+-- =======================================================
+select * 
+from connections 
+where sender_id = $1
+and reaction = true 
+and receiver_id 
+in (select sender_id 
+    from connections 
+    where receiver_id = $1 
+    and reaction = true)
+-- =======================================================
+select * 
+from matches 
+where sender_id = $1 
+or receiver_id = $1
