@@ -27,13 +27,13 @@ const {
     , APP_ID
     , FB_CALLBACK
     , FB_LOGOUT_REDIRECT
-    , FB_REDIRECT
+    , FB_REDIRECT_DEV
     , FB_FAIL_REDIRECT
 }   = process.env;
 //  ================= INVOKE =======================
 const app = express()
     , io = socket(app.listen(SERVER_PORT, ()=> console.log(`Sockets on port ${SERVER_PORT}`)))
-app.use(express.static(`${__dirname}/../build`));
+// app.use(express.static(`${__dirname}/../build`));
 app.use(bodyParser.json())
 
 // =========== MASSIVE =============================
@@ -135,7 +135,7 @@ app.get('/auth/logout', ((req,res)=>{
 
 app.get('/fb',passport.authenticate('facebook',{scope:['public_profile','user_birthday','email']}));
 app.get('/fb/callback', passport.authenticate('facebook',{
-      successRedirect: FB_REDIRECT
+      successRedirect: FB_REDIRECT_DEV
     , failureRedirect: FB_FAIL_REDIRECT
 }));
 
