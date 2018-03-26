@@ -158,10 +158,14 @@ io.on('connection', socket =>{
 
     socket.on("Join room", data => {
         console.log("Room Joined",data.match_id)
+        const db = app.get('db')
         socket.join(data.match_id);
-        io.to(data.match_id).emit('Room joined', data.match_id)
+        db.run(`select * from messages where match_id = ${data.match_id}`).then((messages)=>{
+            io.to(data.match_id).emit("Room joined", messages)
+        })
+        // io.to(data.match_id).emit('Room joined', data.match_id)
     })
-    socket.on('Disconnect',()=>{
+    socket.on('disconnect',()=>{
         console.log('User Disconnected')
     })
 })

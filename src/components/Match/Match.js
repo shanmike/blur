@@ -5,13 +5,23 @@ import './Match.css'
 import Preview from '../Preview/Preview'
 
 export default class Match extends React.Component{
+    constructor(){
+        super()
+        this.state = {
+            search: ''
+        }
+    }
+        handleChange(value, key){
+            this.setState({
+                [key]:value
+            })
+        }
     render(){
         return(
             <div className="match-child">
                 <div className="match-white-container">
                     <div className="match-search-container">
-                        <img className="search-img" src={Search} alt=""/>
-                        <ProfileInputStyle keyValue={'search'} name="Search New Matches" />
+                       
                     </div>
                     <div className="new-match-container">
                         <div className="match-title">New Matches</div>

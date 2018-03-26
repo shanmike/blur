@@ -46,6 +46,7 @@ export default class MyCards extends React.Component {
           
           <div className="user-list-info-container">
             <div className="user-list-information">
+              <div>Distance from you in miles: {user.distance_from_user}</div>
               <div className="user-list-title">{user.hobbies?`Hobbies:`:null}</div>
               <div className="user-list-description">{user.hobbies}</div>
             </div>
