@@ -39,16 +39,15 @@ class ChangeSettings extends React.Component{
     }
     
     render(){
-        console.log(this.props.user)
+        // console.log(this.props.user)
         return(
             <div className="change-set-child">
-                <div></div>
                 <div className="change-set-white-container">
                     <div className="change-set-gray-container">
                         <div className="change-set-gray-box">
                             <div className="change-set-title-container">
+                            <div className="change-set-orange-title">Show Me</div>
                                 <div className="change-set-title-buttons">
-                                    <div>Show Me</div>
                                     <div className="show-me-buttons">
                                         <button onClick = {()=>this.handleGender('male')} className="show-me-buttons-both">Men</button>
                                         <button onClick = {()=>this.handleGender('female')} className="show-me-buttons-both">Women</button>
@@ -59,8 +58,8 @@ class ChangeSettings extends React.Component{
                     </div>
                     <div className="change-set-gray-container">
                         <div className="change-set-gray-box">
-                            <div className="change-set-title-container">
-                                <div> Maximum Distance</div>
+                            <div className="change-set-title-container" id="settings-age">
+                                <div className="change-set-orange-title"> Maximum Distance</div>
                                 <div className="change-set-distance-slider-container">
                                     <SliderOne handleSlider={this.sliderChange} distance_range={this.props.user.distance_range}/>
                                 </div>   
@@ -69,47 +68,50 @@ class ChangeSettings extends React.Component{
                     </div>
                     <div className="change-set-gray-container">
                         <div className="change-set-gray-box">
-                            <div className="change-set-title-container">
-                                <div>Age Range</div>
+                            <div className="change-set-title-container" id="settings-age">
+                                <div className="change-set-orange-title">Age Range</div>
                                 <div className="change-set-distance-slider-container">
-                                    <SliderTwo handleSlider={this.sliderChange} age_max={this.props.user.age_max} age_min={18}/>
+                                    <SliderTwo handleSlider={this.sliderChange} age_max={this.props.user.age_max} age_min={this.props.user.age_min}/>
                                 </div>  
                             </div>    
                         </div>
                     </div>
                     <div className="change-set-gray-container">
                         <div className="change-set-gray-box">
-                            <div className="change-set-title-container">Show me on Blur
-                            </div>
-                            <div className="notifications">
-                                <div>Use GPS</div>
-                                <Toggle handleChange={this.toggleChange} visible={this.props.user.visible}/>
+                            <div className="change-set-title-container" id="settings-gps">
+                                <div className="change-set-orange-title">Show me on Blur</div>
+                                <div className="notifications">
+                                    <div className="change-set-grey-title">Use GPS</div>
+                                    <Toggle handleChange={this.toggleChange} visible={this.props.user.visible}/>
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div className="change-set-gray-container">
                         <div className="change-set-gray-box">
-                            <div className="change-set-title-container">Notifications</div>
-                            <div className="notifications">
-                                <div>New Match</div>
-                                <Toggle placeholder/>
-                            </div>
-                            <div className="notifications">
-                                <div>New Message</div>
-                                <Toggle/>
-                            </div>
-                            <div className="notifications">
-                                <div>New Likes</div>
-                                <Toggle className="toggle-style"/>
-                            </div>
-                            <div className="notifications">
-                                <div>New Loves</div>
-                                <Toggle/>
+                            <div className="change-set-title-container" id="notifications-box">
+                                <div className="change-set-orange-title">Notifications</div>
+                                <div className="notifications">
+                                    <div className="change-set-grey-title">New Match</div>
+                                    <Toggle placeholder/>
+                                </div>
+                                <div className="notifications">
+                                    <div className="change-set-grey-title">New Message</div>
+                                    <Toggle/>
+                                </div>
+                                <div className="notifications">
+                                    <div className="change-set-grey-title">New Likes</div>
+                                    <Toggle className="toggle-style"/>
+                                </div>
+                                <div className="notifications">
+                                    <div className="change-set-grey-title">New Loves</div>
+                                    <Toggle/>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div></div>
+
             </div>
         )
     }

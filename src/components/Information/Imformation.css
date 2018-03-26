@@ -2,7 +2,7 @@
 
 .information-child {
     display: grid;
-    grid-template-columns: 4% 92% 4%;
+    grid-template-columns: 100%;
 }
 
 /* information WHITE CONTAINER */
@@ -10,6 +10,7 @@
 .information-white-container {
     background: #fff;
     height: 89vh;
+    width: 100%;
     border-radius: 20px;
     text-align: center;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
@@ -26,8 +27,8 @@
     min-width: 345px;
     max-width: 345px;
     max-height: 722.68px;
-    /* min-height: 700.68px; */
-    margin:auto;
+    margin: auto;
+   
 }
 
 ::-webkit-scrollbar {

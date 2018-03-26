@@ -2,14 +2,15 @@
     background: linear-gradient(213.52deg, #FFFFFF -0.05%, rgba(255, 255, 255, 0) 100.66%), linear-gradient(330.55deg, #28AFB0 30.93%, rgba(255, 255, 255, 0) 67.74%), #EE964B;    
     height: 100vh;    
     display: grid;
-    grid-template-rows: 7% 2% 89% 2%;
+    grid-template-rows: 7% 93%;
 }
 /* MESSAGE CHILD*/
 
 .message-child {
     height:100%;
     display: grid;
-    grid-template-columns: 4% 92% 4%;
+    grid-template-columns: 100%;
+    margin: auto;
 }
 
 /* MESSAGE WHITE CONTAINER */
@@ -23,11 +24,13 @@
     min-width: 345px;
     max-width: 345px;
     max-height: 722.68px;
+    margin:auto;
+    box-sizing: border-box;
 }
 
 /* MESSAGES */
 .messages {
-    height: 82vh;
+    height: 90%;
     width: 100%;
     overflow-y:auto;
     display: flex;
@@ -35,7 +38,7 @@
     flex-direction: column;
     padding: 40px 15px;
     box-sizing: border-box; 
-    overflow: hidden;
+    overflow: scroll;
     
 }
 .message-text{
@@ -55,7 +58,7 @@
 
 /* MESSAGE INPUT CONTAINER */
 .message-input-container{
-    height: 7vh;
+    height: 10%;
 	background-color: #e5e6ea;
 	display: flex;
 	justify-content: space-around;

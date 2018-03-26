@@ -8,7 +8,6 @@ export default class Match extends React.Component{
     render(){
         return(
             <div className="match-child">
-                <div></div>
                 <div className="match-white-container">
                     <div className="match-search-container">
                         <img className="search-img" src={Search} alt=""/>
@@ -25,7 +24,6 @@ export default class Match extends React.Component{
                          <Preview/>
                     </div>
                 </div>
-                <div></div>
             </div>
         )
     }

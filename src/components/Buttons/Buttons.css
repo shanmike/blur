@@ -3,13 +3,13 @@
     display:grid;
     grid-template-columns: 20% 20% 20% 20% 20%;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     left: 0;
     right:0;
     width: 100%;
     max-width:  375px;
     margin: auto;
-
+    box-sizing: border-box;
 }
 
 /* BOTTOM BUTTONS */
@@ -26,12 +26,15 @@
     background: #fff;
     border-radius: 50%;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+    
 }
 .bottom-buttons{
     background: none;
     border: none;
     text-decoration: none;
     outline:none;
+    box-sizing: border-box;
+    padding: 5px;
 }
 
 .bottom_buttons:active{

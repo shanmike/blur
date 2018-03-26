@@ -5,8 +5,8 @@ import Slider from 'material-ui/Slider';
 export default class SliderExampleControlled extends Component {
   render(props) {
     return (
-      <div>
-        <div>{`Age: ${this.props.age_max}`}</div>
+      <div className="slider-container">
+        <div className="slider-text">{`Age: ${this.props.age_max}`}</div>
         <Slider
           min={18}
           max={65}

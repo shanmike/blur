@@ -12,7 +12,7 @@ module.exports = {
                 AND user_id != ${user_id}
                 AND gender = '${show_gender}'
                 AND visible = true
-                AND date_part('year', AGE(birthday)) > ${age_min} 
+                AND date_part('year', AGE(birthday)) > 18 
                 AND date_part('year', AGE(birthday)) < ${age_max}
                 AND user_id NOT IN 
                 (SELECT receiver_id

@@ -1,14 +1,11 @@
 /* CARDS MOTION */
 .motion-card-stack {
-    display: grid;
-    grid-template-columns: 345px;
-    grid-template-rows: 657px;
-    align-items: center;
-    justify-content: center;
-    /* background: #fff; */
-    border-radius: 20px;
-    margin: auto;
-    
+  display: grid;
+  /* height: 100%; */
+  /* width: 100%; */
+  grid-template-columns: 100%;
+  box-sizing: border-box;
+  padding: 5%;
   }
   
   .motion-card-item {
@@ -17,11 +14,13 @@
     will-change: transform;
     background: #fff;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-    height: 81vh;
+    height:80vh;
     width: 100%;
     border-radius: 20px;
+    overflow: scroll;
     margin: auto;
-    max-width: 375px;
+    max-width: 337px;
+    /* min-height: 650px; */
     overflow: hidden;
     box-sizing: border-box;
     /* border: 5px solid #9B51E0;  */
@@ -32,64 +31,49 @@
     display: grid;
     grid-template-rows: 50% 50%;
     height: 100%;
+    width: 100%;
     overflow: scroll;
   }
-  .user-list-container-premium{
-    display: grid;
-    grid-template-rows: 50% 50%;
-    height: 100%;
-    overflow: scroll;
-  }
+
   /* USER LIST IMAGE */
   .user-list-image{
       position: absolute;
       z-index: -1;
       left:0;
+      right: 0;
       top:0;
       border-radius: 20px;
-      width: 100%;
-      height: 40vh;
+      width: 337.5px;
+      height: 325px;
       filter:blur(8px);
-      clip: rect(0px, 345px, 320px, 0px);
+      clip: rect(0px, 337.5px, 324.8px, 0px);
   }
-  .user-list-image-premium{
-    position: absolute;
-    z-index: -1;
-    left:0;
-    top:0;
-    border-radius: 20px;
-    width: 100%;
-    height: 40vh;
-    filter:blur(4px);
-    clip: rect(0px, 345px, 320px, 0px);
-}
+
   /* USER LIST NAME */
   .user-list-name{
     font-family: Pacifico;
+    width: 100%;
     font-style: normal;
     font-weight: normal;
     line-height: normal;
     font-size: 36px;
     color: #fff;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    position: absolute;
-    left: 12px;
-    bottom:344px;
+    position: fixed;
+    z-index: 1;
+    top:250px;
       
   }
   /* USER LIST INFO CONTAINER */
   .user-list-info-container{
+    height:100%;
     width:100%;
     overflow: scroll;
     text-align: left;
   }
-  .user-list-container{
-    width: 100%;
-  }
 
   /* USER LIST TITLE */
   .user-list-title{
-    width: calc(100%-10px);
     font-family: Ovo;
     font-style: normal;
     font-size: 20px;
@@ -99,7 +83,6 @@
   }
 /* USER LIST DESCRIPTION */
   .user-list-description{
-    width: calc(100%-30px);
     padding: 0 15px;
     box-sizing: border-box;
   }

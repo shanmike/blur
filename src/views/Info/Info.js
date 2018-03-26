@@ -9,7 +9,6 @@ export default class Info extends React.Component{
         return(
             <div className="info-container">
                 <Navbar/>
-                <div></div>
                 <Information/>
             </div>
         )

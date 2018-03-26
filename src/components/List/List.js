@@ -34,12 +34,8 @@ class List extends Component {
   render(props) {
     // console.log(user);
     return (
-      <div className="list-container">
-      <div></div>
-        <div className="list-child">
-        {this.props.user.visible? <MyCards/> : <Progress/>}
-        </div>
-        <div></div>
+      <div className="list-container"> 
+        {this.props.user.visible? <MyCards/> : <Progress/>}      
       </div>
     );
   }

@@ -6,11 +6,7 @@
     text-align: center;
     grid-gap: 0px;
     display: grid;
-    grid-template-columns: 10% 80% 10%;
-    grid-template-areas:"...... .. .."
-                        "app-logo app-logo app-logo "
-                        "app-name app-name app-name"
-                        "app-button app-button app-button "
+    grid-template-columns: 100%;
 }
 
 /* THE BIG F LOGO */
@@ -42,7 +38,7 @@
 }
 /* LOGIN CONTAINER */
 .app-btn-container{
-    margin: auto;
+    /* margin: auto; */
 }
 
 /* LOGIN BUTTON */

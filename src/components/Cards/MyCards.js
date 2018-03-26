@@ -33,17 +33,16 @@ export default class MyCards extends React.Component {
   }
   
   render() {
-    console.log('USERS-LIST',this.state.usersList)
+    // console.log('USERS-LIST',this.state.usersList)
     const data = Array.from(this.state.usersList, (user, i) => ({
       id: user.user_id,
       element: (
-        <div className={user.premium?"user-list-container-premium":"user-list-container"}>
-          <div>
+        <div className="user-list-container">
             <div className="user-list-image-container">
-              <img src={user.picture} className={!user.premium?"user-list-image-premium":"user-list-image"} alt=""/>
+              <img src={user.picture} className="user-list-image" alt=""/>
+              <div className="user-list-name">{user.name}</div>
             </div>
-            <div className="user-list-name">{user.name}</div>
-          </div>
+          
           
           <div className="user-list-info-container">
             <div className="user-list-information">
@@ -105,7 +104,7 @@ export default class MyCards extends React.Component {
     
     return (
 
-      <div className="demo-wrapper">
+      <div className="list-child">
         {
           this.state.usersList.length ?
           <MotionStack

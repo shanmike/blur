@@ -19,7 +19,7 @@ export default class Preview extends Component {
         })
     }
   render() {
-    console.log("MATCHES FOR USER", this.state.userMatches)
+    // console.log("MATCHES FOR USER", this.state.userMatches)
     const matches = this.state.userMatches.map((e,i)=>{
         return (
             <div className="preview-user-match" key={i}>

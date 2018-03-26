@@ -36,7 +36,7 @@ class Information extends React.Component{
         await this.props.getUser();
         
         axios.get('/getProfileInfo').then((res)=>{
-            console.log("Front", res.data)
+            // console.log("Front", res.data)
             this.setState({
                   hobbies:res.data.hobbies
                 , inspirations:res.data.inspirations
@@ -79,9 +79,7 @@ class Information extends React.Component{
         const user = this.props.user;
         return(
             <div className="information-child">
-                <div></div>
-                <div className="information-white-container">
-                    
+                <div className="information-white-container"> 
                     <div className="profile-image-container">
                         <img className="information-profile-image"src={user.picture} alt=""/>
                     </div>
@@ -105,7 +103,6 @@ class Information extends React.Component{
                         <ProfileInputStyle keyValue={"songs"} val = {this.state.songs}  handleChange={this.handleChange} name="Favorite bands" />
                     </div>
                 </div>
-                <div></div>
             </div> 
         )
     }

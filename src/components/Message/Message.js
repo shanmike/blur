@@ -2,7 +2,7 @@ import React from 'react';
 import io from 'socket.io-client';
 import {connect} from 'react-redux';
 import {getUser} from '../../redux/User/user';
-import Navbar from '../Navbar/Navbar'
+import NavBack from '../NavBack/NavBack'
 import './Message.css';
 
 class Message extends React.Component{
@@ -57,10 +57,8 @@ class Message extends React.Component{
         })
         return(
             <div className="message-container">
-            <Navbar />
-            <div></div>
+            <NavBack />
                 <div className="message-child">
-                    <div></div>
                     <div className="message-white-container">
                         <div className="messages"> 
                             {messages}

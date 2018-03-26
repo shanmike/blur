@@ -7,6 +7,7 @@ import info from './Images/lnr-pencil.svg';
 import diamond from './Images/lnr-diamond-gray.svg';
 import './ChangeProfile.css';
 
+
 class ChangeProfile extends React.Component{
     componentDidMount(){
         this.props.getUser();
@@ -15,32 +16,30 @@ class ChangeProfile extends React.Component{
         const user = this.props.user;
         return(
             <div className="change-profile-child">
-                <div></div>
                 <div className="change-profile-white-container">
-                    <div></div>
                     <div className="change-profile-image-container">
                         <img className="change-profile-image"src={user.picture} alt="" />
                     </div>
                     <div className="change-profile-name">{user.name}</div>
                     <div className="change-profile-buttons-container">
-                        <div></div>
                         <div className="buttons">
                             <div className="buttons-svg-container">
                                 <Link to="/settings">
                                     <img className="buttons-svg" src={settings} alt=""/>
+                                    SETTINGS
                                 </Link>
-                                <br/>SETTINGS
                             </div>
                             <div className="buttons-svg-container">
-                                <Link to="/info"><img className="buttons-svg" src={info} alt=""/></Link>
-                                <br/>INFO
+                                <Link to="/info">
+                                    <img className="buttons-svg" src={info} alt=""/>
+                                    INFORMATION
+                                </Link>
                             </div>    
                         </div>
                         <div className="buttons-svg-container">
                             <img className="buttons-svg" src={diamond} alt=""/>
-                            <br/>PREMIUM
+                            PREMIUM
                         </div>
-                    
                         <div className="change-profile-logout">
                            <div className="change-profile-button">
                                 <a href='/auth/logout'><button className="logout-button">Log out</button></a>

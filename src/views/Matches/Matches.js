@@ -8,7 +8,6 @@ export default class Matches extends React.Component{
         return(
             <div className="matches-container">
                 <Navbar/>
-                <div></div>
                 <Match/>
             </div>
         )

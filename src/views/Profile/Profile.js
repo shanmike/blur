@@ -8,7 +8,6 @@ export default class Profile extends React.Component{
         return(
             <div className="profile-container">
                 <Navbar/>
-                <div></div>
                 <ChangeProfile/>
             </div>
         )

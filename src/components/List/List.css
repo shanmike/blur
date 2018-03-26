@@ -2,8 +2,11 @@
 
 .list-container {
     display: grid;
-    grid-template-columns: 4% 92% 4%;
-
+    grid-template-columns: 100%;
+    margin:auto;
+    height: 100%;
+    width: 100%;
+    margin: auto;
 }
 
 /* LIST CHILD */
@@ -11,18 +14,18 @@
 .list-child {
     /* background: #fff; */
     height: 100%;
+    width: 100%;
     border-radius: 20px;
     text-align: center;
-    /* box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4); */
-    /* display: grid;
-    grid-template-rows: 50% 50%; */
-    margin:auto;
-    
+    display: grid;
+    grid-template-rows: 90% 10%  ;
+    margin: auto;
+    /* padding: 5%; */
 }
 .list-display{
     margin: auto;
 }
-.getting-location{
+/* .getting-location{
     display: grid;
     grid-template-rows: 20%
-}
+} */

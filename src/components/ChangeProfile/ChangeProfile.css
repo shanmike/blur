@@ -2,10 +2,12 @@
 
 .change-profile-child {
     display: grid;
-    grid-template-columns: 4% 92% 4%;
-    position: relative;
+    grid-template-columns:100%;
+   
 }
-
+a{
+    text-decoration: none;
+}
 /* change-profile WHITE CONTAINER */
 
 .change-profile-white-container {
@@ -16,11 +18,10 @@
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
     overflow: scroll;
     display: grid;
-    grid-template-rows: 4% 30% 10% 60%;
+    grid-template-rows: 30% 10% 60%;
     min-width: 345px;
     max-width: 345px;
     max-height: 722.68px;
-    /* min-height: 700px; */
     margin:auto;
 }
 ::-webkit-scrollbar {
@@ -30,16 +31,20 @@
 /* change-profile IMAGE CONTAINER */
 
 .change-profile-image-container {
-    display: grid;
-    grid-template-columns: 100%;
+    /* display: grid;
+    grid-template-columns: 100%; */
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+    padding:8px;
 }
 
 .change-profile-image {
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.25);
     border-radius: 120px;
-    height: 100%;
+    height: 200px;
+    width: 200px;
     margin: auto;
-    width: 65%;
 }
 
 /* change-profile NAME CONTAINER */
@@ -53,19 +58,21 @@
     text-align: center;
     color: #000000;
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    margin:auto;
 }
 
 /* change-profile BUTTONS CONTAINER */
 
 .change-profile-buttons-container {
+    width: 100%;
     display: grid;
-    grid-template-rows:0% 40% 40% 20% 
+    grid-template-rows: 45% 45% 10% 
 }
 
 /* change-profile BUTTONS */
 
 .buttons-svg-container {
+    height: 100%;
+    width: 100%;
     font-family: Alice;
     font-style: normal;
     font-weight: normal;
@@ -74,12 +81,17 @@
     text-align: center;
     color: #7D7D7D;
     margin:auto;
+    text-decoration: none;
+    display: grid;
+    box-sizing: border-box;
     
 }
 
 .buttons {
+    width: 100%;
     display: grid;
-    grid-template-columns: 50% 50%
+    grid-template-columns: 50% 50%;
+    margin: auto;
 }
 
 .buttons-svg {
@@ -95,8 +107,9 @@
 
 .change-profile-logout {
     height: 100%;
-    display: grid;
-    grid-template-rows: 50% 50%
+    width: 100%;
+    /* display: grid;
+    grid-template-rows: 50% 50% */
 }
 .change-profile-button{
     margin: auto;

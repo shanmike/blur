@@ -8,7 +8,6 @@ export default class Settings extends React.Component{
         return(
             <div className="settings-container">
                 <Navbar/>
-                <div></div>
                 <ChangeSettings/>
             </div>
         )
