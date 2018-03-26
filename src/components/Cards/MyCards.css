@@ -19,8 +19,9 @@
     border-radius: 20px;
     overflow: scroll;
     margin: auto;
-    max-width: 337px;
-    /* min-height: 650px; */
+    min-width: 345px;
+    max-width: 345px;
+    max-height: 722.68px;
     overflow: hidden;
     box-sizing: border-box;
     /* border: 5px solid #9B51E0;  */

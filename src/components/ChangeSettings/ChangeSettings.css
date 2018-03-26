@@ -13,15 +13,17 @@
 /* change-set WHITE CONTAINER */
 
 .change-set-white-container {
+    background: #fff;
     height: 89vh;
     width: 100%;
-    background: #fff;
     border-radius: 20px;
     text-align: center;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
-    display: grid;
-    max-width: 375px;
+    min-width: 345px;
+    max-width: 345px;
+    max-height: 722.68px;
     margin: auto;
+    display: grid;
     grid-template-rows: 16% 16% 16% 16% 36%;
 }
 
