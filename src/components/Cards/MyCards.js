@@ -112,7 +112,7 @@ export default class MyCards extends React.Component {
           onSwipeEnd={this.onSwipeEnd}
           render={props => props.element}
           renderButtons={this.renderButtons}/>
-          : <Progress />
+          : <Progress/>
         }
       </div>
     );

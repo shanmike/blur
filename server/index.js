@@ -12,6 +12,7 @@ const express = require('express')
     // , messages_ctrl = require('./controllers/messages_ctrl')
     , profile_ctrl = require('./controllers/profile_ctrl')
     , socket = require('socket.io')
+    , stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 // ============ DOTENV =============================
 const {
@@ -26,7 +27,7 @@ const {
     , APP_ID
     , FB_CALLBACK
     , FB_LOGOUT_REDIRECT
-    , FB_REDIRECT_DEV
+    , FB_REDIRECT
     , FB_FAIL_REDIRECT
 }   = process.env;
 //  ================= INVOKE =======================
@@ -134,7 +135,7 @@ app.get('/auth/logout', ((req,res)=>{
 
 app.get('/fb',passport.authenticate('facebook',{scope:['public_profile','user_birthday','email']}));
 app.get('/fb/callback', passport.authenticate('facebook',{
-      successRedirect: FB_REDIRECT_DEV
+      successRedirect: FB_REDIRECT
     , failureRedirect: FB_FAIL_REDIRECT
 }));
 
@@ -189,3 +190,23 @@ app.get('/getMatches', getMatches);
 // ============== MESSAGES ENDPOINTS ==============================
 // const {getMessage} = messages_ctrl
 // app.get('/getMessage', getMessage);
+
+
+// ========================== STRIPE =============================
+app.post('/api/payment', (req, res, next) => {
+  
+    // If needed, convert req.body.amount to pennies
+  
+    const charge = stripe.charges.create(
+      {
+        source: req.body.token.id,
+        amount: req.body.amount,
+        currency: 'usd',
+        description: 'Stripe test charge'
+      },
+      function(err, charge) {
+          if (err) return res.sendStatus(500);
+          else return res.sendStatus(200);
+      }
+    );
+  });

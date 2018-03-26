@@ -6,6 +6,7 @@ import settings from './Images/lnr-cog.svg';
 import info from './Images/lnr-pencil.svg';
 import diamond from './Images/lnr-diamond-gray.svg';
 import './ChangeProfile.css';
+import Stripe from '../Stripe/Stripe'
 
 
 class ChangeProfile extends React.Component{
@@ -38,7 +39,7 @@ class ChangeProfile extends React.Component{
                         </div>
                         <div className="buttons-svg-container">
                             <img className="buttons-svg" src={diamond} alt=""/>
-                            PREMIUM
+                            <Stripe/>  
                         </div>
                         <div className="change-profile-logout">
                            <div className="change-profile-button">
