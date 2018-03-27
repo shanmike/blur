@@ -1,6 +1,6 @@
 import React from 'react';
-import ProfileInputStyle from '../ProfileInputStyle/ProfileInputStyle'
-import Search from './Images/lnr-magnifier-orange.svg'
+// import ProfileInputStyle from '../ProfileInputStyle/ProfileInputStyle'
+// import Search from './Images/lnr-magnifier-orange.svg'
 import './Match.css'
 import Preview from '../Preview/Preview'
 
