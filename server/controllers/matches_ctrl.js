@@ -28,5 +28,3 @@ module.exports = {
         }
     })
 }
-
-// `SELECT sender_id, receiver_id, match_id,(SELECT user_id FROM users WHERE usere_id IN(sender_id, receiver_id) and user_id NOT EQUAL ${user_id}) as joinOn FROM matches WHERE sender_id = ${user_id} or receiver_id =${user_id} join users on users.user_id = joinOn`

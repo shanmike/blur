@@ -191,11 +191,6 @@ app.get('/getLocalUsers', getLocalUsers);
 const {getMatches} = matches_ctrl
 app.get('/getMatches', getMatches);
 
-// ============== MESSAGES ENDPOINTS ==============================
-// const {getMessage} = messages_ctrl
-// app.get('/getMessage', getMessage);
-
-
 // ========================== STRIPE =============================
 app.post('/api/payment', (req, res, next) => {
   
