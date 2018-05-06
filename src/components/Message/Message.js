@@ -49,7 +49,7 @@ class Message extends React.Component{
         })
     }
     joinSuccess(roomID){
-        console.log("Room ID", roomID)
+        // console.log("Room ID", roomID)
     }
     joinRoom(room_num){
         this.socket.emit("Join room",{
@@ -60,9 +60,9 @@ class Message extends React.Component{
         this.socket.disconnect()
     }
     render(){
-        console.log(this.state, 'this is the state')
-        console.log(this.state.roomsMatch, "Rooms")
-        console.log(this.props.user.user_id)
+        // console.log(this.state, 'this is the state')
+        // console.log(this.state.roomsMatch, "Rooms")
+        // console.log(this.props.user.user_id)
         const messages = this.state.messages.map((e,i)=>{
             const styles = e.user_id === this.props.user.user_id ? {display:"flex",alignSelf: "flex-end", backgroundColor: "#2d96fb", color: "white", borderRadius:"10px",alignItems:"center", boxSizing:"border-box", padding:"3px"} : {display:"flex", alignSelf: "flex-start", backgroundColor: "#e5e6ea", borderRadius:"10px", alignItems:"center", boxSizing:"border-box", padding:"3px"}
              return (<div key={i} className="message-text" style={styles}><img className="message-text-user-image" src={e.user_id === this.props.user.user_id? this.props.user.picture: this.state.roomsMatch[0].picture} alt=""/> {e.message}</div>)
@@ -79,7 +79,7 @@ class Message extends React.Component{
             <NavBack />
                 <div className="message-child">
                     <div className="message-white-container">
-                    <div className="messages"> 
+                        <div className="messages"> 
                             {match}
                             {messages}
                         </div>

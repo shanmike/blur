@@ -13,7 +13,7 @@ export default class Stripe extends Component {
       }
     
       onToken = token => {
-          console.log('token', token);
+        //   console.log('token', token);
           token.card = void 0;
           const { amount } = this.state
           axios.post('/api/payment', { token, amount })

@@ -9,7 +9,6 @@ const express = require('express')
     , users_ctrl = require('./controllers/users_ctrl')
     , connections_ctrl = require('./controllers/connections_ctrl')
     , matches_ctrl = require('./controllers/matches_ctrl')
-    // , messages_ctrl = require('./controllers/messages_ctrl')
     , profile_ctrl = require('./controllers/profile_ctrl')
     , socket = require('socket.io')
     , stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
@@ -143,11 +142,11 @@ app.get('/fb/callback', passport.authenticate('facebook',{
 // ================ SOCKETS ========================
 
 io.on('connection', socket =>{
-    console.log('User Connected')
+    // console.log('User Connected')
     socket.emit("Welcome",{})
 
     socket.on('Message Sent', function(data){
-        console.log("Sockets Data", data)
+        // console.log("Sockets Data", data)
         const db = app.get('db')
         db.messages.insert(data).then(()=>{
             db.run(`select * from messages where match_id = ${data.match_id}`).then((messages)=>{
@@ -157,7 +156,7 @@ io.on('connection', socket =>{
     })
 
     socket.on("Join room", data => {
-        console.log("Room Joined",data.match_id)
+        // console.log("Room Joined",data.match_id)
         const db = app.get('db')
         socket.join(data.match_id);
         db.run(`select * from messages where match_id = ${data.match_id}`).then((messages)=>{
@@ -166,7 +165,7 @@ io.on('connection', socket =>{
         // io.to(data.match_id).emit('Room joined', data.match_id)
     })
     socket.on('disconnect',()=>{
-        console.log('User Disconnected')
+        // console.log('User Disconnected')
     })
 })
 

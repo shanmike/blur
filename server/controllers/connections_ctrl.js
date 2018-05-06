@@ -2,7 +2,7 @@ module.exports = {
     getLocalUsers:((req,res,next)=>{
         const db = req.app.get("db")
         if(req.user){
-            console.log(req.user)
+            // console.log(req.user)
             const {user_id, latitude, longitude, distance_range, show_gender, age_min, age_max} = req.user
             db.run(
                 `SELECT *, point(${latitude}, ${longitude}) <@> point (latitude, longitude)::point as distance_from_user
@@ -22,6 +22,7 @@ module.exports = {
             function(err, res){
                 var localUsers = res;
             }).then(localUsers=>{
+                // console.log("LOCAL USERS- CONNECITON", localUsers)
                 res.status(200).send(localUsers)
             })
         }else{

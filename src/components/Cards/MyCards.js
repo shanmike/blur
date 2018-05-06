@@ -42,8 +42,6 @@ export default class MyCards extends React.Component {
               <img src={user.picture} className="user-list-image" alt=""/>
               <div className="user-list-name">{user.name}</div>
             </div>
-          
-          
           <div className="user-list-info-container">
             <div className="user-list-information">
               <div className="user-list-title">Distance in miles: {user.distance_from_user.toFixed(2)}</div>
@@ -103,10 +101,11 @@ export default class MyCards extends React.Component {
       ) 
     }));
     
+    // console.log("userlist_length",this.state.usersList.length)
+    // console.log("DATA-SASA", data)
     return (
-
       <div className="list-child">
-        {
+      {
           this.state.usersList.length ?
           <MotionStack
           data={data}

@@ -12,7 +12,7 @@ export default class Preview extends Component {
     }
     componentDidMount(){
         axios.get('/getMatches').then(res=>{
-            console.log('Get Matches', res.data)
+            // console.log('Get Matches', res.data)
             this.setState({
                 userMatches:res.data
             })

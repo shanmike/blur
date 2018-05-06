@@ -10,7 +10,7 @@ const UPDATE_USER = "UPDATE_USER"
 
 export function getUser(){
     let userData = axios.get('/auth/me').then(res => {
-        // console.log(res.data)
+        console.log("GET USER-REDUX", res.data)
         return res.data
     })
     return{

@@ -16,11 +16,10 @@ module.exports = {
                 OR receiver_id =${user_id})
                 SELECT * FROM kittens
                 JOIN users 
-                ON users.user_id = kittens.test
-                   
+                ON users.user_id = kittens.test   
                 `)
                 .then(userMatches=>{
-                    console.log(userMatches)
+                    // console.log("USER MATCH",userMatches)
                 res.status(200).send(userMatches)
             }).catch(err=>console.log(err))
         }else{

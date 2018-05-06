@@ -11,6 +11,7 @@
     display: grid;
     grid-template-columns: 100%;
     margin: auto;
+    
 }
 
 /* MESSAGE WHITE CONTAINER */
@@ -32,14 +33,12 @@
 .messages {
     height: 90%;
     width: 100%;
-    overflow-y:auto;
     display: flex;
     font-size: 20px;
     flex-direction: column;
     padding: 40px 15px;
     box-sizing: border-box; 
     overflow: scroll;
-    
 }
 .message-text{
     font-family: Ovo;
@@ -64,6 +63,7 @@
 	justify-content: space-around;
     align-items: center;
     border-radius: 20px;
+    
 }
 .message-input{
     height: 50%;

@@ -15,11 +15,12 @@ class List extends Component {
     }
   }
   async componentDidMount(){
+    // console.log("THIS IS THE COMP DID  MOUNT")
       await this.props.getUser();
       if(this.props.user.visible){
         navigator.geolocation.getCurrentPosition(
             (position)=>{
-              console.log(position)
+              // console.log(position)
               axios.put('/updateUser',{latitude:position.coords.latitude,longitude:position.coords.longitude})}
           , (error)=>{console.log("Could not get location")}
           , {
@@ -32,7 +33,7 @@ class List extends Component {
   }
 
   render(props) {
-    // console.log(user);
+    // console.log(this.props.user);
     return (
       <div className="list-container"> 
         {this.props.user.visible? <MyCards/> : <Progress/>}      
