@@ -12,14 +12,12 @@ export default class Preview extends Component {
     }
     componentDidMount(){
         axios.get('/getMatches').then(res=>{
-            // console.log('Get Matches', res.data)
             this.setState({
                 userMatches:res.data
             })
         })
     }
   render() {
-    // console.log("MATCHES FOR USER", this.state.userMatches)
     const matches = this.state.userMatches.map((e,i)=>{
         return (
             <div className="preview-user-match" key={i}>

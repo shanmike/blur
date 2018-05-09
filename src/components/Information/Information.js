@@ -36,7 +36,6 @@ class Information extends React.Component{
         await this.props.getUser();
         
         axios.get('/getProfileInfo').then((res)=>{
-            // console.log("Front", res.data)
             this.setState({
                   hobbies:res.data.hobbies
                 , inspirations:res.data.inspirations
@@ -75,7 +74,6 @@ class Information extends React.Component{
     }
 
     render(){
-        // console.log(this.state)
         const user = this.props.user;
         return(
             <div className="information-child">

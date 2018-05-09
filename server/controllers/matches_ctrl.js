@@ -19,9 +19,8 @@ module.exports = {
                 ON users.user_id = kittens.test   
                 `)
                 .then(userMatches=>{
-                    // console.log("USER MATCH",userMatches)
                 res.status(200).send(userMatches)
-            }).catch(err=>console.log(err))
+            }).catch(err=>err)
         }else{
             res.status(401).send('Sign in')
         }

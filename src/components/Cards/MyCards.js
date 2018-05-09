@@ -14,7 +14,6 @@ export default class MyCards extends React.Component {
     }
   }
   onSwipeEnd = ({ data }) => {
-    // console.log('data', data);
   };
   
   renderButtons(props) {
@@ -25,7 +24,6 @@ export default class MyCards extends React.Component {
 
   componentDidMount(){
     axios.get('/getLocalUsers').then(res=>{
-      // console.log('Get users list',res.data)
       this.setState({
         usersList:res.data
       })
@@ -33,7 +31,6 @@ export default class MyCards extends React.Component {
   }
   
   render() {
-    // console.log('USERS-LIST',this.state.usersList)
     const data = Array.from(this.state.usersList, (user, i) => ({
       id: user.user_id,
       element: (
@@ -101,8 +98,6 @@ export default class MyCards extends React.Component {
       ) 
     }));
     
-    // console.log("userlist_length",this.state.usersList.length)
-    // console.log("DATA-SASA", data)
     return (
       <div className="list-child">
       {

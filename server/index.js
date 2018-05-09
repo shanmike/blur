@@ -59,7 +59,6 @@ passport.use(new FacebookStrategy({
     profileFields:['id','displayName','birthday','email','gender','picture.width(500).height(500)']
   },
   function(accessToken, refreshToken, profile, done) {
-    //   console.log(profile)
       const db = app.get('db')
     db.find_user([profile.id]).then(user=>{
         if(user[0]){
@@ -142,11 +141,9 @@ app.get('/fb/callback', passport.authenticate('facebook',{
 // ================ SOCKETS ========================
 
 io.on('connection', socket =>{
-    // console.log('User Connected')
     socket.emit("Welcome",{})
 
     socket.on('Message Sent', function(data){
-        // console.log("Sockets Data", data)
         const db = app.get('db')
         db.messages.insert(data).then(()=>{
             db.run(`select * from messages where match_id = ${data.match_id}`).then((messages)=>{
@@ -156,7 +153,6 @@ io.on('connection', socket =>{
     })
 
     socket.on("Join room", data => {
-        // console.log("Room Joined",data.match_id)
         const db = app.get('db')
         socket.join(data.match_id);
         db.run(`select * from messages where match_id = ${data.match_id}`).then((messages)=>{
@@ -165,7 +161,6 @@ io.on('connection', socket =>{
         // io.to(data.match_id).emit('Room joined', data.match_id)
     })
     socket.on('disconnect',()=>{
-        // console.log('User Disconnected')
     })
 })
 

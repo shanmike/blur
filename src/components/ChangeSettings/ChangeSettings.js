@@ -39,7 +39,7 @@ class ChangeSettings extends React.Component{
     }
     
     render(){
-        // console.log(this.props.user)
+
         return(
             <div className="change-set-child">
                 <div className="change-set-white-container">
