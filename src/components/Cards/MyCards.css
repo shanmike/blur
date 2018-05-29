@@ -6,6 +6,7 @@
   grid-template-columns: 100%;
   box-sizing: border-box;
   padding: 5%;
+  
   }
   
   .motion-card-item {
@@ -13,7 +14,7 @@
     grid-row: 1/2;
     will-change: transform;
     background: #fff;
-    box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
+    
     height:80vh;
     width: 100%;
     border-radius: 20px;
@@ -24,6 +25,7 @@
     max-height: 722.68px;
     overflow: hidden;
     box-sizing: border-box;
+    
     /* border: 5px solid #9B51E0;  */
   
   }
@@ -34,6 +36,7 @@
     height: 100%;
     width: 100%;
     overflow: scroll;
+    
   }
 
   /* USER LIST IMAGE */

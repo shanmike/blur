@@ -39,7 +39,8 @@ class ChangeProfile extends React.Component{
                         </div>
                         <div className="buttons-svg-container">
                             <img className="buttons-svg" src={diamond} alt=""/>
-                            <Stripe/>  
+                                    PREMIUM
+                            {/* <Stripe/>   */}
                         </div>
                         <div className="change-profile-logout">
                            <div className="change-profile-button">
