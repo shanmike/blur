@@ -6,7 +6,7 @@ import settings from './Images/lnr-cog.svg';
 import info from './Images/lnr-pencil.svg';
 import diamond from './Images/lnr-diamond-gray.svg';
 import './ChangeProfile.css';
-import Stripe from '../Stripe/Stripe'
+// import Stripe from '../Stripe/Stripe'
 
 
 class ChangeProfile extends React.Component{

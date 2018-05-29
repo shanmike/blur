@@ -36,11 +36,7 @@ const app = express()
 app.use(bodyParser.json())
 
 // =========== MASSIVE =============================
-massive(CONNECTION_STRING).then(db=>{ 
-    app.set('db', db);
-    // app.listen(SERVER_PORT, () => console.log(`Let it thrive on: ${SERVER_PORT}`));
-
-}).catch(console.log);
+massive(CONNECTION_STRING).then(db=>{ app.set('db', db);}).catch(console.log);
 
 // ============ AUTH ==============================
 app.use(session({
@@ -176,7 +172,7 @@ app.put('/updateUser', updateUser);
 const {getProfileInfo, updateProfile} = profile_ctrl
 app.get('/getProfileInfo', getProfileInfo);
 app.put('/updateProfile', updateProfile);
-// app.delete('/deleteProfile', deleteProfile);
+
 
 // ============== CONNECTIONS / LOCAL USERS ENDPOINTS =============
 const {getLocalUsers} = connections_ctrl
@@ -188,8 +184,6 @@ app.get('/getMatches', getMatches);
 
 // ========================== STRIPE =============================
 app.post('/api/payment', (req, res, next) => {
-  
-    // If needed, convert req.body.amount to pennies
   
     const charge = stripe.charges.create(
       {
