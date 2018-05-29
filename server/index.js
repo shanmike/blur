@@ -26,7 +26,7 @@ const {
     , APP_ID
     , FB_CALLBACK
     , FB_LOGOUT_REDIRECT
-    , FB_REDIRECT_DEV
+    , FB_REDIRECT
     , FB_FAIL_REDIRECT
 }   = process.env;
 //  ================= INVOKE =======================
@@ -130,7 +130,7 @@ app.get('/auth/logout', ((req,res)=>{
 
 app.get('/fb',passport.authenticate('facebook',{scope:['public_profile','user_birthday','email']}));
 app.get('/fb/callback', passport.authenticate('facebook',{
-      successRedirect: FB_REDIRECT_DEV
+      successRedirect: FB_REDIRECT
     , failureRedirect: FB_FAIL_REDIRECT
 }));
 
