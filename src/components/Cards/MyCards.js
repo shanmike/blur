@@ -41,7 +41,7 @@ export default class MyCards extends React.Component {
             </div>
           <div className="user-list-info-container">
             <div className="user-list-information">
-              {/* <div className="user-list-title">Distance in miles: {user.distance_from_user.toFixed(2)}</div> */}
+              <div className="user-list-title">Distance in miles: {user.distance_from_user.toFixed(2)}</div>
               <div className="user-list-title">{user.hobbies?`Hobbies:`:null}</div>
               <div className="user-list-description">{user.hobbies}</div>
             </div>

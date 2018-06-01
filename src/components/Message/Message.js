@@ -60,7 +60,7 @@ class Message extends React.Component{
     }
     render(){
         const messages = this.state.messages.map((e,i)=>{
-            const styles = e.user_id === this.props.user.user_id ? {display:"flex",alignSelf: "flex-end", backgroundColor: "#2d96fb", color: "white", borderRadius:"10px",alignItems:"center", boxSizing:"border-box", padding:"3px"} : {display:"flex", alignSelf: "flex-start", backgroundColor: "#e5e6ea", borderRadius:"10px", alignItems:"center", boxSizing:"border-box", padding:"3px"}
+            const styles = e.user_id === this.props.user.user_id ? {display:"flex",alignSelf: "flex-end", backgroundColor: "#2099fc", color: "white", borderRadius:"10px",alignItems:"center", boxSizing:"border-box", padding:"3px"} : {display:"flex", alignSelf: "flex-start", backgroundColor: "#e5e6ea", borderRadius:"10px", alignItems:"center", boxSizing:"border-box", padding:"3px"}
              return (<div key={i} className="message-text" style={styles}><img className="message-text-user-image" src={e.user_id === this.props.user.user_id? this.props.user.picture: this.state.roomsMatch[0].picture} alt=""/> {e.message}</div>)
         })
         const match = this.state.roomsMatch.map((e,i)=>{

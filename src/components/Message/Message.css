@@ -48,11 +48,13 @@
     font-size: 18px;
     color: #7D7D7D; 
     
+    
 }
 .message-text-user-image{
     height:40px;
     width: 40px;
     border-radius: 50%;
+    padding-right: 7px;
 }
 
 /* MESSAGE INPUT CONTAINER */
