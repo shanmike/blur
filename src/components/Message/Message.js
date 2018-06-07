@@ -20,7 +20,7 @@ class Message extends React.Component{
         
     }
 
-    async componentDidMount(){
+    async componentWillMount(){
        await  axios.get('/getMatches').then(res=>{
                     this.setState({
                     roomsMatch:res.data

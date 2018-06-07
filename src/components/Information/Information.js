@@ -32,9 +32,7 @@ class Information extends React.Component{
         })
     }
 
-    async componentDidMount(){
-        await this.props.getUser();
-        
+    componentWillMount(){
         axios.get('/getProfileInfo').then((res)=>{
             this.setState({
                   hobbies:res.data.hobbies

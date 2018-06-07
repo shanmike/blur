@@ -14,7 +14,7 @@ class List extends Component {
 
     }
   }
-  async componentDidMount(){
+  async componentWillMount(){
       await this.props.getUser();
       if(this.props.user.visible){
         navigator.geolocation.getCurrentPosition(

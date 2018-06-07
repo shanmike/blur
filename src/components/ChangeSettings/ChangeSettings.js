@@ -26,9 +26,9 @@ class ChangeSettings extends React.Component{
         this.props.updateUser(updates)
       }
 
-    componentDidMount(){
-        this.props.getUser();
-    }
+    // componentWillMount(){
+    //     this.props.getUser();
+    // }
 
     handleGender(value){
         this.setState({

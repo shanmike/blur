@@ -10,9 +10,6 @@ import './ChangeProfile.css';
 
 
 class ChangeProfile extends React.Component{
-    componentDidMount(){
-        this.props.getUser();
-    }
     render(){
         const user = this.props.user;
         return(

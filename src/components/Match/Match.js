@@ -25,9 +25,7 @@ export default class Match extends React.Component{
                     </div>
                     <div className="new-match-container">
                         <div className="match-title">New Matches</div>
-                        <div className="new-matches">
-                            
-                        </div>
+
                     </div>
                     <div className="match-message-container">
                          <div className="match-title">Message</div>
