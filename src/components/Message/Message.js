@@ -27,10 +27,10 @@ class Message extends React.Component{
                  })
              })
               this.props.getUser();
-              this.socket = io('/')
-              this.socket.on('Received Message', this.updateMessages)
-              this.socket.on('Room joined', this.updateMessages)
-              this.joinRoom()
+              this.socket = io('/');
+              this.socket.on('Received Message', this.updateMessages);
+              this.socket.on('Room joined', this.updateMessages);
+              this.joinRoom();
     }
 
     sendMessage(){
@@ -60,14 +60,12 @@ class Message extends React.Component{
     }
     render(){
         const messages = this.state.messages.map((e,i)=>{
-            const styles = e.user_id === this.props.user.user_id ? {display:"flex",alignSelf: "flex-end", backgroundColor: "#2099fc", color: "white", borderRadius:"10px",alignItems:"center", boxSizing:"border-box", padding:"3px"} : {display:"flex", alignSelf: "flex-start", backgroundColor: "#e5e6ea", borderRadius:"10px", alignItems:"center", boxSizing:"border-box", padding:"3px"}
+            const styles = e.user_id === this.props.user.user_id ? {display:"flex", justifyContent: "flex-end", color: "#7d7d7d", borderRadius:"10px",alignItems:"center", boxSizing:"border-box", padding:"3px"} : {display:"flex", alignSelf: "flex-start", borderRadius:"10px", alignItems:"center", boxSizing:"border-box", padding:"3px"}
              return (<div key={i} className="message-text" style={styles}><img className="message-text-user-image" src={e.user_id === this.props.user.user_id? this.props.user.picture: this.state.roomsMatch[0].picture} alt=""/> {e.message}</div>)
         })
         const match = this.state.roomsMatch.map((e,i)=>{
             return (
-                <div key={i}>
-                    <img className="message-image" src={this.state.roomsMatch[0].picture} alt=""/>
-                </div>
+                <img key={i} className="message-image" src={this.state.roomsMatch[0].picture} alt=""/>
             )
         })
         return(
@@ -75,8 +73,8 @@ class Message extends React.Component{
             <NavBack />
                 <div className="message-child">
                     <div className="message-white-container">
-                        <div className="messages"> 
                             {match}
+                        <div className="messages"> 
                             {messages}
                         </div>
                         <div className="message-input-container">

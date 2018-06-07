@@ -7,7 +7,7 @@
 /* MESSAGE CHILD*/
 
 .message-child {
-    height:100%;
+    height:89vh;
     display: grid;
     grid-template-columns: 100%;
     margin: auto;
@@ -18,7 +18,7 @@
 
 .message-white-container {
     background: #fff;
-    height: 100%;
+    height: 89vh;
     border-radius: 20px;
     text-align: center;
     box-shadow: 5px 5px 4px rgba(0, 0, 0, 0.4);
@@ -27,18 +27,19 @@
     max-height: 722.68px;
     margin:auto;
     box-sizing: border-box;
+    
 }
 
 /* MESSAGES */
 .messages {
-    height: 90%;
+    height: 41.8%;
     width: 100%;
-    display: flex;
+    /* display: flex; */
     font-size: 20px;
     flex-direction: column;
-    padding: 40px 15px;
     box-sizing: border-box; 
     overflow: scroll;
+    
 }
 .message-text{
     font-family: Ovo;
@@ -47,6 +48,7 @@
     line-height: normal;
     font-size: 18px;
     color: #7D7D7D; 
+    margin: 10px;
     
     
 }
@@ -54,7 +56,7 @@
     height:40px;
     width: 40px;
     border-radius: 50%;
-    padding-right: 7px;
+    margin-right: 7px;
 }
 
 /* MESSAGE INPUT CONTAINER */
@@ -84,4 +86,5 @@
 }
 .message-image{
     width: 100%;
+    border-radius: 20px 20px 0 0;
 }
