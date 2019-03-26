@@ -1,19 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-
-import {Provider} from 'react-redux'
-import store from './store'
-import {HashRouter} from 'react-router-dom'
-import { MuiThemeProvider } from 'material-ui/styles';
+import { MuiThemeProvider } from "material-ui/styles";
+import React from "react";
+import ReactDOM from "react-dom";
+import { Provider } from "react-redux";
+import { HashRouter } from "react-router-dom";
+import Layout from "./components/layout";
+import "./index.css";
+import store from "./store";
 
 ReactDOM.render(
-    <HashRouter>
-        <Provider store={store}>
-            <MuiThemeProvider>
-            <App />
-            </MuiThemeProvider>
-        </Provider>
-    </HashRouter>
-    , document.getElementById('root'));
+  <Provider store={store}>
+    <MuiThemeProvider>
+      <HashRouter>
+        <Layout />
+      </HashRouter>
+    </MuiThemeProvider>
+  </Provider>,
+  document.getElementById("root")
+);
